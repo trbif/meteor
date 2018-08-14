@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<crawlers>
+    <!--<crawler id = "BaseCrawler" class="cn.meteor.cloud.crawler.impl.BaseCrawler" >-->
+    <!--</crawler>-->
+    <crawler id = "SinaCrawler" class = "cn.meteor.cloud.crawler.impl.SinaCrawler" >
+        <urlTemplate url="http://feed.mix.sina.com.cn/api/roll/get?pageid=@pageid_str_str@&amp;lid=@lid_str_str@&amp;num=100&amp;versionNumber=1.2.8&amp;ctime=@ctime_date_s@&amp;encode=utf-8&amp;callback=feedCardJsonpCallback&amp;_=@a_date_ms@">
+            <param pageid="204" lid="22"></param>
+            <param pageid="236" lid="24"></param>
+        </urlTemplate>
+    </crawler>
+</crawlers>

@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="c04fbdc8-5b30-4a70-ae46-09c3bf346a39" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ServiceController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/controller/ServiceController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="38" column="33" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1092#1093#0" expanded="true" />
+                <element signature="e#1153#1154#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsConsumerServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/dubbo/impl/NewsConsumerServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#853#854#0" expanded="true" />
+                <element signature="e#915#916#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataProviderApplication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/DataProviderApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#614#615#0" expanded="true" />
+                <element signature="e#688#689#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsDubboService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/dubbo/NewsDubboService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NewsConsumerService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/dubbo/NewsConsumerService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.properties" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/bootstrap.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1349">
+              <caret line="71" column="51" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find />
+      <find>ManufacturerBean</find>
+      <find>manufacturer</find>
+      <find>crawlerService</find>
+      <find>ENCODE</find>
+      <find>http://feed.mix.sina.com.cn/api/roll/get?pageid=(@@1_str_str)&amp;lid=(@@2_str_str)&amp;num=1</find>
+      <find>&amp;</find>
+      <find>E:/IdeaLogs/springboot-log/</find>
+      <find>slf4j-api</find>
+      <find>slf4j</find>
+      <find>${catalina.base}/logs</find>
+      <find>eureka-client</find>
+      <find>port</find>
+      <find>host</find>
+      <find>cacheManager</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>;</replace>
+      <replace>NewsBean</replace>
+      <replace>newsBean</replace>
+      <replace>&amp;amp;</replace>
+      <replace>F:/meteorlog</replace>
+      <replace>F:/meteorlog/</replace>
+      <replace>F:/logs/meteorlog</replace>
+    </replaceStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/service/CrawlerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/service/impl/CrawlerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/bean/NewsBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/service/NewsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/service/impl/NewsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/mapper/NewsMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/utils/HttpRequest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/CrawlerAbstract.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/impl/CrawlerThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/proxy/xmlparser/CrawlerDefine.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/crawlers.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/proxy/xmlparser/ClassPathXMLApplicationContext.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/Crawler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/impl/BaseCrawler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/utils/MD5.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/starter/CrawlerStarter.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/impl/SinaCrawler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/bean/UserVectorBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/NewsService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/impl/NewsServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/CrawlerProviderApplication.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cn/meteor/cloud/service/NewsServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/redis/RedisClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/bean/UserBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/util/Counter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/vec/VectorModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/vec/HuffmanNeuron.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/vec/Word2Vec.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/vec/WordNeuron.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/bean/NewsBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/starter/DataTrainStarter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/DataProviderApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/rest/RestTemplateConfig.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cn/meteor/cloud/train/starter/DataTrainStarterTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/redis/RedisConfig.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cn/meteor/cloud/redis/RedisConfigTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/mapper/NewsMapper.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/dubbo/impl/NewsConsumerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/test/java/cn/meteor/cloud/service/dubbo/NewsCosumerServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/ClientController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/controller/ClientController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/controller/ServiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/bootstrap.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/controller/GoodsController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/cn/meteor/cloud/repository/NewsRepository.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="960" />
+    <option name="y" value="30" />
+    <option name="width" value="960" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="meteor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="meteor" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="redis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="data-provider" type="b2602c69:ProjectViewProjectNode" />
+              <item name="data-provider" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="cloud" type="462c0819:PsiDirectoryNode" />
+              <item name="starter" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cn.meteor.cloud.controller" />
+      <recent name="cn.meteor.cloud.data.bean" />
+      <recent name="cn.meteor.cloud.mapper" />
+      <recent name="cn.meteor.cloud.proxy.xmlparser" />
+      <recent name="cn.meteor.cloud.crawler.impl" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\WorkStudio\Spring\meteor\cloud\data-provider\src\main\java\cn\meteor\cloud\controller" />
+      <recent name="E:\WorkStudio\Spring\meteor\cloud\data-provider\src\main\java\cn\meteor\cloud\data\train\word2vec\vec" />
+      <recent name="E:\WorkStudio\Spring\meteor\cloud\data-provider\src\main\java\cn\meteor\cloud\data\train\word2vec" />
+      <recent name="E:\WorkStudio\Spring\meteor\cloud\crawler-provider\src\main\java\cn\meteor\cloud\utils" />
+      <recent name="E:\WorkStudio\Spring\meteor\cloud\crawler-provider\src\main\java\cn\meteor\cloud\service\impl" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.NewsCosumerServiceTest.test">
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+    </configuration>
+    <configuration name="DataTrainStarterTest.testDataTrainStarter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="eureka-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.meteor.cloud.train.starter.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="cn.meteor.cloud.train.starter" />
+      <option name="MAIN_CLASS_NAME" value="cn.meteor.cloud.train.starter.DataTrainStarterTest" />
+      <option name="METHOD_NAME" value="testDataTrainStarter" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="NewsCosumerServiceTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="eureka-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.meteor.cloud.service.dubbo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="cn.meteor.cloud.service.dubbo" />
+      <option name="MAIN_CLASS_NAME" value="cn.meteor.cloud.service.dubbo.NewsCosumerServiceTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="NewsServiceTest.testInsert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="eureka-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.meteor.cloud.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="cn.meteor.cloud.service" />
+      <option name="MAIN_CLASS_NAME" value="cn.meteor.cloud.service.NewsServiceTest" />
+      <option name="METHOD_NAME" value="testInsert" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="RedisConfigTest.testMulti" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="eureka-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.meteor.cloud.redis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="cn.meteor.cloud.redis" />
+      <option name="MAIN_CLASS_NAME" value="cn.meteor.cloud.redis.RedisConfigTest" />
+      <option name="METHOD_NAME" value="testMulti" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="RedisConfigTest.testPipeLine" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="eureka-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.meteor.cloud.redis.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="cn.meteor.cloud.redis" />
+      <option name="MAIN_CLASS_NAME" value="cn.meteor.cloud.redis.RedisConfigTest" />
+      <option name="METHOD_NAME" value="testPipeLine" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="EurekaClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="eureka-client" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="cn.meteor.DataProviderApplication" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="%MODULE_WORKING_DIR%" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <properties />
+      <listeners />
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.EurekaClientApplication" />
+      <item itemvalue="JUnit.NewsServiceTest.testInsert" />
+      <item itemvalue="JUnit.RedisConfigTest.testPipeLine" />
+      <item itemvalue="JUnit.RedisConfigTest.testMulti" />
+      <item itemvalue="JUnit.DataTrainStarterTest.testDataTrainStarter" />
+      <item itemvalue="JUnit.NewsCosumerServiceTest.test" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.NewsCosumerServiceTest.test" />
+        <item itemvalue="JUnit.RedisConfigTest.testPipeLine" />
+        <item itemvalue="JUnit.DataTrainStarterTest.testDataTrainStarter" />
+        <item itemvalue="JUnit.RedisConfigTest.testMulti" />
+        <item itemvalue="JUnit.NewsServiceTest.testInsert" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c04fbdc8-5b30-4a70-ae46-09c3bf346a39" name="Default" comment="" />
+      <created>1533623148538</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1533623148538</updated>
+      <workItem from="1533623151350" duration="4630000" />
+      <workItem from="1533628408762" duration="619000" />
+      <workItem from="1533632463636" duration="1651000" />
+      <workItem from="1533684932186" duration="23622000" />
+      <workItem from="1533716878834" duration="1130000" />
+      <workItem from="1533774119032" duration="22131000" />
+      <workItem from="1533808049539" duration="223000" />
+      <workItem from="1533808313879" duration="2252000" />
+      <workItem from="1533856960681" duration="2585000" />
+      <workItem from="1533860241737" duration="114000" />
+      <workItem from="1533860363207" duration="53000" />
+      <workItem from="1533860578506" duration="24404000" />
+      <workItem from="1533953819427" duration="7148000" />
+      <workItem from="1534146775510" duration="4402000" />
+      <workItem from="1534207601676" duration="10495000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="RedisConfigTest_testPipeLine - 2018.08.10 at 13h 04m 17s.xml">
+      <configuration name="RedisConfigTest.testPipeLine" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RedisConfigTest_testMulti - 2018.08.10 at 13h 04m 40s.xml">
+      <configuration name="RedisConfigTest.testMulti" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DataTrainStarterTest_testDataTrainStarter - 2018.08.10 at 16h 09m 44s.xml">
+      <configuration name="DataTrainStarterTest.testDataTrainStarter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DataTrainStarterTest_testDataTrainStarter - 2018.08.10 at 16h 51m 37s.xml">
+      <configuration name="DataTrainStarterTest.testDataTrainStarter" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RedisConfigTest_testPipeLine - 2018.08.11 at 10h 38m 37s.xml">
+      <configuration name="RedisConfigTest.testPipeLine" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="RedisConfigTest_testPipeLine - 2018.08.11 at 10h 39m 15s.xml">
+      <configuration name="RedisConfigTest.testPipeLine" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NewsCosumerServiceTest_test - 2018.08.13 at 16h 30m 00s.xml">
+      <configuration name="NewsCosumerServiceTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NewsCosumerServiceTest_test - 2018.08.14 at 08h 59m 33s.xml">
+      <configuration name="NewsCosumerServiceTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NewsCosumerServiceTest_test - 2018.08.14 at 11h 07m 29s.xml">
+      <configuration name="NewsCosumerServiceTest.test" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="NewsCosumerServiceTest_test - 2018.08.14 at 11h 13m 19s.xml">
+      <configuration name="NewsCosumerServiceTest.test" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="105459000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32911393" />
+      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5005208" side_tool="true" weight="0.32911393" />
+      <window_info anchor="right" id="Maven Projects" order="3" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49947917" visible="true" weight="0.32805908" />
+      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info id="Designer" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24947916" />
+      <window_info anchor="right" id="Bean Validation" order="3" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39978904" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32911393" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="2" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/proxy/xmlparser/CrawlerDefine.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/proxy/xmlparser/ClassPathXMLApplicationContext.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/Crawler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/impl/BaseCrawler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/utils/MD5.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/crawlers.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/starter/CrawlerStarter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="53" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/crawler/impl/SinaCrawler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/bean/UserVectorBean.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/impl/CrawlerServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/CrawlerService.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/cn/meteor/cloud/service/NewsServiceTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/cn/meteor/CrawlerProviderApplicationTests.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/redis/RedisClient.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/vec/HuffmanNeuron.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/vec/VectorModel.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/vec/Word2Vec.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/vec/WordNeuron.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/util/Tokenizer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/util/LineIterator.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/util/Counter.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/util/HuffmanNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/word2vec/util/HuffmanTree.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/bean/NewsBean.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/bean/UserBean.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/t.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/train/starter/DataTrainStarter.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/cn/meteor/cloud/redis/RedisConfigTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="34" column="54" selection-start-line="34" selection-start-column="41" selection-end-line="34" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/redis/RedisConfig.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/impl/NewsServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/impl/UserServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/NewsService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/service/UserService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/mapper/UserMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/mapper/NewsMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/data/rest/RestTemplateConfig.java" />
+    <entry file="file://$PROJECT_DIR$/src/test/java/cn/meteor/cloud/train/starter/DataTrainStarterTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="33" column="1" lean-forward="true" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/com/alibaba/dubbo/2.6.2/dubbo-2.6.2.jar!/com/alibaba/dubbo/config/annotation/Reference.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="95" column="21" selection-start-line="95" selection-start-column="13" selection-end-line="95" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="143" lean-forward="true" selection-start-line="143" selection-end-line="143" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/dubbo/NewsConsumerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="20" column="26" selection-start-line="20" selection-start-column="26" selection-end-line="20" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/dubbo/NewsDubboService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="19" column="15" lean-forward="true" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2034#2035#0" expanded="true" />
+            <element signature="e#2095#2096#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/controller/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="603">
+          <caret line="56" column="30" lean-forward="true" selection-start-line="56" selection-start-column="30" selection-end-line="56" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/controller/ServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="38" column="33" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1092#1093#0" expanded="true" />
+            <element signature="e#1153#1154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/repository/NewsRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="81" selection-start-line="3" selection-start-column="81" selection-end-line="3" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/controller/GoodsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1482">
+          <caret line="93" column="42" selection-start-line="93" selection-start-column="42" selection-end-line="93" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/cn/meteor/cloud/service/dubbo/NewsCosumerServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="453">
+          <caret line="32" column="91" lean-forward="true" selection-start-line="32" selection-start-column="91" selection-end-line="32" selection-end-column="91" />
+          <folding>
+            <element signature="e#929#930#0" expanded="true" />
+            <element signature="e#1026#1027#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/cloud/dubbo/impl/NewsConsumerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#853#854#0" expanded="true" />
+            <element signature="e#915#916#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cn/meteor/DataProviderApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="25" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#614#615#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/bootstrap.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1349">
+          <caret line="71" column="51" selection-start-line="71" selection-start-column="51" selection-end-line="71" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
