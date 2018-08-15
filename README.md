@@ -47,5 +47,7 @@
 <h3>#####2018-08-14#####</h3>
 <p>1.dubbo初步集成完成，crawler提供getNewsList服务，data消费服务，zookeeper作为注册中心（eureka同时存在）</p>
 <p>2.elasticsearch初步集成完成，集成在crawler上，与mybatis共享pojo bean，保证结构一致性</p>
+<h3>#####2018-08-15#####</h3>
+<p>1.dubbo初步集成完成，crawler提供getNewsList服务，data消费服务，zookeeper作为注册中心（eureka同时存在）</p>
 </body>
 </html>
