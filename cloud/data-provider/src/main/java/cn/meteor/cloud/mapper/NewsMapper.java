@@ -20,7 +20,6 @@ import org.apache.ibatis.annotations.Select;
  */
 @Mapper
 public interface NewsMapper {
-
     @Select("SELECT * FROM NewsBean WHERE newsPublishDate BETWEEN #{newsPublishDateStart} AND #{newsPublishDateEnd}")
     public NewsBean findByDatePeriod(@Param("newsPublishDateStart") long start,
                                      @Param("newsPublishDateEnd") long end);

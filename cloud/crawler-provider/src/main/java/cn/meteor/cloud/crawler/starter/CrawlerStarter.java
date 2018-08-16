@@ -5,7 +5,7 @@ import cn.meteor.cloud.crawler.Crawler;
 import cn.meteor.cloud.proxy.CrawlerGenInstance;
 import cn.meteor.cloud.proxy.xmlparser.ClassPathXMLApplicationContext;
 import cn.meteor.cloud.proxy.xmlparser.CrawlerDefine;
-import cn.meteor.cloud.service.CrawlerService;
+import cn.meteor.cloud.service.UserService;
 import cn.meteor.cloud.service.NewsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +38,7 @@ public class CrawlerStarter {
 
     @Autowired
 //    @Qualifier("cn.meteor.cloud.service.impl.CrawlerServiceImpl")
-    CrawlerService crawlerService;
+            UserService userService;
     @Autowired
     NewsService newsService;
 

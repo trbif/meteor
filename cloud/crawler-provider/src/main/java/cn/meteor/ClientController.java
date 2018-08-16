@@ -4,14 +4,13 @@ import cn.meteor.cloud.bean.NewsBean;
 import cn.meteor.cloud.bean.User;
 import cn.meteor.cloud.crawler.impl.SinaCrawler;
 import cn.meteor.cloud.crawler.starter.CrawlerStarter;
-import cn.meteor.cloud.service.CrawlerService;
+import cn.meteor.cloud.service.UserService;
 import cn.meteor.cloud.service.NewsService;
-import org.mybatis.spring.annotation.MapperScan;
+//import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -42,7 +41,7 @@ public class ClientController {
     @Autowired
     CrawlerStarter crawlerStarter;
     @Autowired
-    CrawlerService crawlerService;
+    UserService userService;
 
     @RequestMapping("/startCrawler")
     public String startCrawler() {
@@ -57,7 +56,7 @@ public class ClientController {
     @RequestMapping("/user")
     public User user() {
         crawlerStarter.reload();
-        return crawlerService.find("小明");
+        return userService.find("小明");
     }
 //    非线程安全
     @RequestMapping("/counttest")

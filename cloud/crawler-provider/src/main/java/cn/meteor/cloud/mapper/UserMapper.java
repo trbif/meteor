@@ -1,9 +1,7 @@
 package cn.meteor.cloud.mapper;
 
 import cn.meteor.cloud.bean.User;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 /**
  * @ProjectName: crawler-provider
@@ -18,15 +16,6 @@ import org.apache.ibatis.annotations.Select;
  * @Version: 1.0.0
  * <p>Copyright: Copyright (c) 2018</p>
  */
-@Mapper
 public interface UserMapper {
-
-//    public void insert(User user);
-//
-//    public void update(User user);
-//
-//    public void delete(int id);
-
-    @Select("SELECT * FROM User WHERE username = #{username}")
     public User find(@Param("username") String username);
 }

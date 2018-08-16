@@ -47,7 +47,16 @@
 <h3>#####2018-08-14#####</h3>
 <p>1.dubbo初步集成完成，crawler提供getNewsList服务，data消费服务，zookeeper作为注册中心（eureka同时存在）</p>
 <p>2.elasticsearch初步集成完成，集成在crawler上，与mybatis共享pojo bean，保证结构一致性</p>
-<h3>#####2018-08-15#####</h3>
-<p>1.dubbo初步集成完成，crawler提供getNewsList服务，data消费服务，zookeeper作为注册中心（eureka同时存在）</p>
+<h3>#####2018-08-16#####</h3>
+<p>计划：</p>
+<p>1.mybatis使用xml方式管理mapper，不再使用注入方式</p>
+<p>2.增加训练代码，至少保证word2vec的builder完成（builder+重载）</p>
+<p>3.完成ik分词（或别的分词器）的部署</p>
+<p>实施：</p>
+<p>1.完成crawler下的mybatis使用xml session管理</p>
+<p>2.训练代码完成</p>
+<p>3.完成word分词器部署</p>
+<p>其它：</p>
+<p>1.创建w2vmodels表用于存储模型信息</p>
 </body>
 </html>

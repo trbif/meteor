@@ -2,11 +2,9 @@ package cn.meteor.cloud.service.impl;
 
 import cn.meteor.cloud.bean.User;
 import cn.meteor.cloud.mapper.UserMapper;
-import cn.meteor.cloud.service.CrawlerService;
-import org.mybatis.spring.annotation.MapperScan;
+import cn.meteor.cloud.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.Resource;
 
 /**
  * @ProjectName: crawler-provider
@@ -21,11 +19,10 @@ import javax.annotation.Resource;
  * @Version: 1.0.0
  * <p>Copyright: Copyright (c) 2018</p>
  */
-//@MapperScan({"cn.meteor.cloud.mapper"})
 @Service("userService")
-public class CrawlerServiceImpl implements CrawlerService {
+public class UserServiceImpl implements UserService {
 
-    @Resource
+    @Autowired
     private UserMapper userMapper;
 
     @Override

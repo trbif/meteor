@@ -1,13 +1,9 @@
 package cn.meteor.cloud.proxy;
 
 import cn.meteor.cloud.crawler.Crawler;
-import cn.meteor.cloud.service.CrawlerService;
 import cn.meteor.cloud.service.NewsService;
-import com.netflix.discovery.converters.Auto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;

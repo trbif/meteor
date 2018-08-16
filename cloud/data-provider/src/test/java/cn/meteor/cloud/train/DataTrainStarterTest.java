@@ -1,4 +1,4 @@
-package cn.meteor.cloud.train.starter;
+package cn.meteor.cloud.train;
 
 import cn.meteor.DataProviderApplication;
 import org.junit.Test;

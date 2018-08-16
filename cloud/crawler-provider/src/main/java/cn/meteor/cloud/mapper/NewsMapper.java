@@ -18,10 +18,10 @@ import java.util.List;
  * @Version: 1.0.0
  * <p>Copyright: Copyright (c) 2018</p>
  */
-@Mapper
+//@Mapper
 public interface NewsMapper {
 
-    @Select("SELECT newsTags,newsOriginalSummary,newsTitle FROM News WHERE newsPublishDate BETWEEN #{newsPublishDateStart} AND #{newsPublishDateEnd}")
+//    @Select("SELECT newsTags,newsOriginalSummary,newsTitle FROM News WHERE newsPublishDate BETWEEN #{newsPublishDateStart} AND #{newsPublishDateEnd}")
     public List<NewsBean> findByDatePeriod(@Param("newsPublishDateStart") long newsPublishDateStart,
                                          @Param("newsPublishDateEnd") long newsPublishDateEnd);
 
@@ -40,9 +40,9 @@ public interface NewsMapper {
         }
     }*/
 
-    @Insert({ "insert ignore into news(md5,newsTitle,newsPublishDate,newsTags,newsLink,newsContent,contentFeature,newsOriginalSummary,newsSummary,newsKeyword,newsPicUrl,newsVideoUrl) values(#{md5}, #{newsTitle}, #{newsPublishDate}, #{newsTags}, #{newsLink}, #{newsContent}, #{contentFeature}, #{newsOriginalSummary}, #{newsSummary}, #{newsKeyword}, #{newsPicUrl}, #{newsVideoUrl})"})
+//    @Insert({ "insert ignore into news(md5,newsTitle,newsPublishDate,newsTags,newsLink,newsContent,contentFeature,newsOriginalSummary,newsSummary,newsKeyword,newsPicUrl,newsVideoUrl) values(#{md5}, #{newsTitle}, #{newsPublishDate}, #{newsTags}, #{newsLink}, #{newsContent}, #{contentFeature}, #{newsOriginalSummary}, #{newsSummary}, #{newsKeyword}, #{newsPicUrl}, #{newsVideoUrl})"})
     public void insert(NewsBean bean);
 
-    @Select("SELECT * FROM News WHERE md5 = #{md5}")
+//    @Select("SELECT * FROM News WHERE md5 = #{md5}")
     public List<NewsBean> findByMD5(@Param("md5") String md5);
 }

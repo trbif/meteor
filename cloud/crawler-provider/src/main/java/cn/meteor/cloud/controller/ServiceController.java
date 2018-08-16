@@ -39,6 +39,6 @@ public class ServiceController {
 
     @RequestMapping("/getNews")
     public List<NewsBean> getNewsList(){
-        return newsService.getNewsList(1531885866000L,1533885866000L);
+        return newsService.getNewsList(1501885866000L,1633885866000L);
     }
 }
