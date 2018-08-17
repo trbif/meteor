@@ -2,6 +2,7 @@ package cn.meteor.cloud.service;
 
 import cn.meteor.cloud.bean.NewsBean;
 import cn.meteor.cloud.bean.UserBean;
+import cn.meteor.cloud.returnmsg.ReturnMsg;
 
 import java.util.List;
 
@@ -23,4 +24,6 @@ public interface UserService {
     public List<NewsBean> getUserStableList(UserBean userBean);
     public List<NewsBean> getUserCurrentList(UserBean userBean);
     public List<NewsBean> getUserIntendedList(UserBean userBean);
+    public List<UserBean> getUserListByLoginTime(long lastlogin);
+    public ReturnMsg logup(UserBean userBean);
 }

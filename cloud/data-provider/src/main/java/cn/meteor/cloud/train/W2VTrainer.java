@@ -8,6 +8,8 @@ import cn.meteor.cloud.train.word2vec.vec.Word2Vec;
 import org.apache.ibatis.io.Resources;
 import org.apdplat.word.WordSegmenter;
 import org.apdplat.word.segmentation.Word;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.*;
 import java.util.*;
@@ -27,6 +29,7 @@ import java.util.concurrent.Callable;
  * <p>Copyright: Copyright (c) 2018</p>
  */
 public class W2VTrainer implements Callable<Object> {
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     private Word2Vec.Method trainMethod;
     private Word2Vec word2Vec = null;
@@ -52,12 +55,15 @@ public class W2VTrainer implements Callable<Object> {
             return new ReturnMsg.Builder().
                     setErrorMsg("success").
                     setAccuracy(getAccuracy(modelPath)).
+                    setModelName(modelPath).
                     build();
         }
         return new ReturnMsg.Builder().setErrorMsg("null").build();
     }
 
     private void fillCorpus(List<NewsBean> beanList){
+        LOG.info("开始填充语料");
+        long start = System.currentTimeMillis();
         word2Vec = new Word2Vec.Factory()
                 .setMethod(trainMethod)
                 .setVectorSize(params.getVectorDim())
@@ -71,28 +77,35 @@ public class W2VTrainer implements Callable<Object> {
                             .replaceAll(", "," "),
                     " "));
         }
+        long end = System.currentTimeMillis();
+        LOG.info("结束填充语料，耗时：{}ms",end-start);
     }
 
     private double getAccuracy(String modelPath){
+        LOG.info("开始计算准确度");
+        long start = System.currentTimeMillis();
         VectorModel model = VectorModel.loadFromFile(modelPath);
         String resource = "train/corpus.check";
         BufferedReader reader = null;
         int bingo = 0;
-        int total = 0;
+        int total = 1;
         try {
-            reader = (BufferedReader)Resources.getResourceAsReader(resource);
+            reader = new BufferedReader(Resources.getResourceAsReader(resource));
             String str = null;
             while((str=reader.readLine())!=null){
-                String[] items = str.trim().split("\\t");
+                String[] items = str.trim().split("&&&&&");
                 if(items.length!=2)
                     continue;
                 total++;
                 List<Word> words = WordSegmenter.seg(items[0]);
                 float[] contentVectorPlus = new float[params.getVectorDim()];
                 for(Word word:words){
-                    vectorPlus(contentVectorPlus,model.getWordVector(word.getText()));
+                    float[] wordVector = model.getWordVector(word.getText());
+                    if(wordVector==null) continue;
+                    vectorPlus(contentVectorPlus,wordVector);
                 }
                 List<String> categories = new ArrayList<>();
+                categories.add("IT");
                 Map<Float,String> similarityTreeMap = new TreeMap<Float,String>(new Comparator<Float>() {
                     @Override
                     public int compare(Float o1, Float o2) {
@@ -101,6 +114,7 @@ public class W2VTrainer implements Callable<Object> {
                 });
                 for(String category:categories){
                     float[] predictCategoryVector = model.getWordVector(category);
+                    if(predictCategoryVector==null) continue;
                     toOne(predictCategoryVector);
                     float similarity = similarity(predictCategoryVector,contentVectorPlus);
                     similarityTreeMap.put(similarity,category);
@@ -112,9 +126,13 @@ public class W2VTrainer implements Callable<Object> {
                     topK--;
                 }
             }
+            reader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+        long end = System.currentTimeMillis();
+        LOG.info("结束计算准确度，耗时：{}ms",end-start);
+        LOG.info("准确度相关数字: bingo({}),total({})",bingo,total);
         return bingo/(double)total;
     }
 

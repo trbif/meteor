@@ -1,9 +1,9 @@
 package cn.meteor.cloud.mapper;
 
 import cn.meteor.cloud.bean.UserBean;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
+
+import java.util.List;
 
 /**
  * @ProjectName: crawler-provider
@@ -20,8 +20,12 @@ import org.apache.ibatis.annotations.Select;
  */
 @Mapper
 public interface UserMapper {
-
     @Select("SELECT * FROM user WHERE username = #{username}")
     public UserBean find(@Param("username") String username);
 
+    @Select("select id from user where lastlogin > #{lastlogin}")
+    public List<UserBean> getListByLoginTime(@Param("lastlogin") long lastlogin);
+
+    @Insert("insert into user(username,password,lastlogin) values (#{username},#{password},#{lastlogin})")
+    public void insert(UserBean userBean);
 }

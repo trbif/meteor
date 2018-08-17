@@ -13,33 +13,32 @@ package cn.meteor.cloud.bean;
  * @Version: 1.0.0
  * <p>Copyright: Copyright (c) 2018</p>
  */
+
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+
+import java.io.Serializable;
+
 /**
  * User实体类
  * @author Administrator
  *
  */
-public class UserVectorBean {
+public class UserVectorBean implements Serializable {
 
-    private int id;
-    private int userid;
+    private long id;
+    private long  userid;
     private String stablevector;
     private String currentvector;
     private String intendedvector;
+    private String version;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
-    }
-
-    public int getUserid() {
-        return userid;
-    }
-
-    public void setUserid(int userid) {
-        this.userid = userid;
     }
 
     public String getStablevector() {
@@ -66,14 +65,20 @@ public class UserVectorBean {
         this.intendedvector = intendedvector;
     }
 
+    public void setUserid(long userid) {
+        this.userid = userid;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     @Override
     public String toString() {
-        return "UserVectorBean{" +
-                "id=" + id +
-                ", userid=" + userid +
-                ", stablevector='" + stablevector + '\'' +
-                ", currentvector='" + currentvector + '\'' +
-                ", intendedvector='" + intendedvector + '\'' +
-                '}';
+        return JSON.toJSONString(this,SerializerFeature.WriteMapNullValue);
     }
 }

@@ -1,5 +1,8 @@
 package cn.meteor.cloud.bean;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+
 /**
  * @ProjectName: data-provider
  * @Package: cn.meteor.cloud.bean
@@ -27,7 +30,7 @@ public class W2VModelBean {
     //'模型版本'
     private String modelVersion;
     //'模型满意度'
-    private String modelSatisfaction;
+    private double modelSatisfaction;
 
     public long getId() {
         return id;
@@ -77,24 +80,16 @@ public class W2VModelBean {
         this.modelVersion = modelVersion;
     }
 
-    public String getModelSatisfaction() {
+    public double getModelSatisfaction() {
         return modelSatisfaction;
     }
 
-    public void setModelSatisfaction(String modelSatisfaction) {
+    public void setModelSatisfaction(double modelSatisfaction) {
         this.modelSatisfaction = modelSatisfaction;
     }
 
     @Override
     public String toString() {
-        return "W2VModelBean{" +
-                "id=" + id +
-                ", modelName='" + modelName + '\'' +
-                ", modelAccuracy=" + modelAccuracy +
-                ", modelPublishDate=" + modelPublishDate +
-                ", modelParams='" + modelParams + '\'' +
-                ", modelVersion='" + modelVersion + '\'' +
-                ", modelSatisfaction='" + modelSatisfaction + '\'' +
-                '}';
+        return JSON.toJSONString(this,SerializerFeature.WriteMapNullValue);
     }
 }

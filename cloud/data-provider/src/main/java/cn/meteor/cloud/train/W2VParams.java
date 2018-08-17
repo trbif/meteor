@@ -1,5 +1,7 @@
 package cn.meteor.cloud.train;
 
+import java.util.Objects;
+
 /**
  * @ProjectName: data-provider
  * @Package: cn.meteor.cloud.train
@@ -41,5 +43,19 @@ public class W2VParams {
         return "W2VParams{" +
                 "vectorDim=" + vectorDim +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof W2VParams)) return false;
+        W2VParams params = (W2VParams) o;
+        return vectorDim == params.vectorDim;
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(vectorDim);
     }
 }

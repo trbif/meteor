@@ -2,7 +2,9 @@ package cn.meteor.cloud.service.impl;
 
 import cn.meteor.cloud.bean.NewsBean;
 import cn.meteor.cloud.bean.UserBean;
+import cn.meteor.cloud.bean.UserVectorBean;
 import cn.meteor.cloud.mapper.UserMapper;
+import cn.meteor.cloud.returnmsg.ReturnMsg;
 import cn.meteor.cloud.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -45,6 +47,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<NewsBean> getUserIntendedList(UserBean userBean) {
+        return null;
+    }
+
+    @Override
+    public List<UserBean> getUserListByLoginTime(long lastlogin) {
+        return userMapper.getListByLoginTime(lastlogin);
+    }
+
+    @Override
+    public ReturnMsg logup(UserBean userBean) {
+        userMapper.insert(userBean);
         return null;
     }
 }

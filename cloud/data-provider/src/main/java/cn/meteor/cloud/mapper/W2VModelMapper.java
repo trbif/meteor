@@ -20,8 +20,9 @@ import org.apache.ibatis.annotations.Select;
  */
 @Mapper
 public interface W2VModelMapper {
-    @Select("select * from W2VModelBean order by modelAccuracy DESC limit 0,1")
+    @Select("select * from w2vmodels order by modelAccuracy DESC limit 0,1")
     public W2VModelBean getMostAccurateModel();
+
     @Insert("insert into w2vmodels(modelName,modelAccuracy,modelPublishDate,modelParams,modelVersion,modelSatisfaction) values(#{modelName}, #{modelAccuracy}, #{modelPublishDate}, #{modelParams}, #{modelVersion}, #{modelSatisfaction})")
     public void insert(W2VModelBean bean);
 }

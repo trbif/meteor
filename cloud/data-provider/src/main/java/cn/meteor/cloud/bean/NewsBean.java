@@ -1,5 +1,8 @@
 package cn.meteor.cloud.bean;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
+
 import java.io.Serializable;
 
 /**
@@ -150,20 +153,6 @@ public class NewsBean implements Serializable {
 
     @Override
     public String toString() {
-        return "NewsBean{" +
-                "newsID=" + id +
-                ", md5='" + md5 + '\'' +
-                ", newsTitle='" + newsTitle + '\'' +
-                ", newsPublishDate='" + newsPublishDate + '\'' +
-                ", newsTags='" + newsTags + '\'' +
-                ", newsLink='" + newsLink + '\'' +
-                ", newsContent='" + newsContent + '\'' +
-                ", contentFeature='" + contentFeature + '\'' +
-                ", newsOriginalSummary='" + newsOriginalSummary + '\'' +
-                ", newsSummary='" + newsSummary + '\'' +
-                ", newsKeyword='" + newsKeyword + '\'' +
-                ", newsPicUrl='" + newsPicUrl + '\'' +
-                ", newsVideoUrl='" + newsVideoUrl + '\'' +
-                '}';
+        return JSON.toJSONString(this,SerializerFeature.WriteMapNullValue);
     }
 }

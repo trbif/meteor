@@ -16,9 +16,11 @@ package cn.meteor.cloud.returnmsg;
 public class ReturnMsg {
     private String errorMsg;
     private double accuracy;
+    private String modelName;
     public static class Builder {
         private String errorMsg;
         private double accuracy;
+        private String modelName;
 
         public Builder setErrorMsg(String errorMsg) {
             this.errorMsg = errorMsg;
@@ -28,6 +30,10 @@ public class ReturnMsg {
             this.accuracy = accuracy;
             return this;
         }
+        public Builder setModelName(String modelName) {
+            this.modelName = modelName;
+            return this;
+        }
         public ReturnMsg build(){
             return new ReturnMsg(this);
         }
@@ -35,14 +41,17 @@ public class ReturnMsg {
 
     @Override
     public String toString() {
-        return "ReturnMsg{" +
-                "errorMsg='" + errorMsg + '\'' +
+        return "{" +
+                "errorMsg:'" + errorMsg + '\'' +
+                ", accuracy:" + accuracy +
+                ", modelName:'" + modelName + '\'' +
                 '}';
     }
 
     public ReturnMsg(Builder builder){
         this.errorMsg = builder.errorMsg;
         this.accuracy = builder.accuracy;
+        this.modelName = builder.modelName;
     }
     enum ResultEnum{
         SUCCESS("success",0),

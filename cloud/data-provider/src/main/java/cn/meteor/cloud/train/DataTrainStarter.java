@@ -1,8 +1,11 @@
 package cn.meteor.cloud.train;
 
 import cn.meteor.cloud.bean.NewsBean;
+import cn.meteor.cloud.bean.W2VModelBean;
 import cn.meteor.cloud.dubbo.NewsConsumerService;
 import cn.meteor.cloud.service.W2VModelService;
+import cn.meteor.cloud.utils.MD5;
+import com.alibaba.fastjson.JSON;
 import org.apdplat.word.WordSegmenter;
 import org.apdplat.word.segmentation.Word;
 import org.slf4j.Logger;
@@ -12,8 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.io.File;
-import java.util.Calendar;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -46,6 +48,8 @@ public class DataTrainStarter {
     @Autowired
     W2VModelService w2VModelService;
 
+    private int[] dim = {20,50,70};
+
     private final static long TWO_WEEKS_IN_MS = 1000*60*60*24*14;
 
     public void train(){
@@ -56,12 +60,31 @@ public class DataTrainStarter {
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
         long currentMS = Calendar.getInstance().getTimeInMillis();
         List<NewsBean> beanList = newsConsumerService.getNewsList(currentMS-TWO_WEEKS_IN_MS,currentMS);
-        Future future = fixedThreadPool.submit(new W2VTrainer(beanList,
-                modeldir+"test.mod",
-                new W2VParams.Builder().setVectorDim(20).build()));
+        Map<W2VParams,Future> futureParams = new HashMap<>();
+        for(int i=0;i<dim.length;i++){
+            W2VParams params = new W2VParams.Builder().setVectorDim(dim[i]).build();
+            futureParams.put(params,fixedThreadPool.submit(new W2VTrainer(beanList,
+                    modeldir+currentMS+"_"+params.getVectorDim()+".mod",
+                    params
+                    )));
+        }
         fixedThreadPool.shutdown();
         try {
-            LOG.info("msg: {}",future.get().toString());
+            for(Map.Entry futureParam:futureParams.entrySet()){
+                W2VParams params = (W2VParams)futureParam.getKey();
+                Future future = (Future)futureParam.getValue();
+                if(JSON.parseObject(future.get().toString()).get("errorMsg").equals("success")){
+                    W2VModelBean w2VModelBean = new W2VModelBean();
+                    w2VModelBean.setModelAccuracy(JSON.parseObject(future.get().toString()).getDouble("accuracy"));
+                    w2VModelBean.setModelPublishDate(Calendar.getInstance().getTimeInMillis());
+                    w2VModelBean.setModelVersion(modelversion);
+                    w2VModelBean.setModelParams(params.toString());
+                    w2VModelBean.setModelSatisfaction(0.0);
+                    w2VModelBean.setModelName(JSON.parseObject(future.get().toString()).getString("modelName"));
+                    LOG.info("新增W2VModelBean： {}",w2VModelBean);
+                    w2VModelService.insert(w2VModelBean);
+                }
+            }
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
