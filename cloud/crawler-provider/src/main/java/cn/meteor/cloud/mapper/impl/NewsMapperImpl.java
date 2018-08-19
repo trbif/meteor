@@ -4,6 +4,8 @@ import cn.meteor.cloud.bean.NewsBean;
 import cn.meteor.cloud.mapper.NewsMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -24,6 +26,7 @@ import java.util.List;
  */
 @Repository
 public class NewsMapperImpl implements NewsMapper {
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     @Autowired
     SqlSessionFactory sqlSessionFactory;
@@ -45,6 +48,8 @@ public class NewsMapperImpl implements NewsMapper {
         try {
             NewsMapper mapper = session.getMapper(NewsMapper.class);
             mapper.insert(bean);
+            LOG.info("newsbean insert:{}",bean);
+            session.commit();
         } finally {
             session.close();
         }

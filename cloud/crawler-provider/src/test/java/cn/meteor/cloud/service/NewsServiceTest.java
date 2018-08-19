@@ -43,7 +43,7 @@ public class NewsServiceTest {
 
     @Test
     public void testFindByDatePeriod(){
-        List<NewsBean> beans = newsService.getNewsList(Calendar.getInstance().getTimeInMillis()-1000*60*60*24,Calendar.getInstance().getTimeInMillis());
+        List<NewsBean> beans = newsService.getNewsList(Calendar.getInstance().getTimeInMillis()-1000*60*60*24*20,Calendar.getInstance().getTimeInMillis());
         int count=0;
         for(NewsBean bean:beans){
             if(count++>10) break;

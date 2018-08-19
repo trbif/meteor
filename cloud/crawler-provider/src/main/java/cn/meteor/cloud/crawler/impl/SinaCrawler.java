@@ -62,6 +62,7 @@ public class SinaCrawler extends CrawlerAbstract implements Crawler{
             newsBean.setMd5(MD5.toMD5(newsBean.getNewsTitle()+newsBean.getNewsPublishDate()));
 //            if(newsService.newsDuplicatedList(newsBean.getMd5()).size()==0)
             newsService.insert(newsBean);
+            LOG.info("插入newsbean：{}",newsBean);
             list.add(newsBean);
         }
 
