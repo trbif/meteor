@@ -1,31 +1,28 @@
 package cn.meteor.cloud.controller;
 
-import cn.meteor.cloud.bean.NewsBean;
 import cn.meteor.cloud.bean.UserBean;
-import cn.meteor.cloud.dubbo.NewsConsumerService;
 import cn.meteor.cloud.redis.RedisClient;
 import cn.meteor.cloud.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
+/**
+ * @ProjectName: data-provider
+ * @Description: 其它验证用的controller
+ * @Author: Daivd Zhang
+ * @CreateDate: 2018/8/16 16:48
+ * @Version: 1.0.0
+ */
 @RestController
-//@ComponentScan({"cn.meteor.cloud.service"})
-//@MapperScan({"cn.meteor.cloud.mapper"})
 @CacheConfig(cacheNames = "users")
 public class ClientController {
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
-
-//    @Value("${server.port}")
-//    private String serverport;
 
     @Autowired
     UserService userService;

@@ -10,16 +10,10 @@ import java.util.List;
 
 /**
  * @ProjectName: meteor
- * @Package: cn.meteor.cloud.service.dubbo.impl
- * @ClassName: ${TYPE_NAME}
- * @Description: 描述
+ * @Description: dubbo消费类 RPC调用crawler中的相应service
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/13 15:01
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/13 15:01
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 @Component
 public class NewsConsumerServiceImpl implements NewsConsumerService {

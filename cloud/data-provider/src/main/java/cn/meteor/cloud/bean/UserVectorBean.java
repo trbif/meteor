@@ -1,28 +1,16 @@
 package cn.meteor.cloud.bean;
 
-/**
- * @ProjectName: crawler-provider
- * @Package: cn.meteor.cloud.bean
- * @ClassName: ${TYPE_NAME}
- * @Description: 描述
- * @Author: Daivd Zhang
- * @CreateDate: 2018/8/8 15:59
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/8 15:59
- * @UpdateRemark: The modified content
- * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
- */
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
 import java.io.Serializable;
 
 /**
- * User实体类
- * @author Administrator
- *
+ * @ProjectName: data-provider
+ * @Description: 用户向量类
+ * @Author: Daivd Zhang
+ * @CreateDate: 2018/8/8 15:59
+ * @Version: 1.0.0
  */
 public class UserVectorBean implements Serializable {
 

@@ -7,21 +7,15 @@ import java.io.Serializable;
 
 /**
  * @ProjectName: crawler-provider
- * @Package: cn.meteor.cloud.bean
- * @ClassName: ${TYPE_NAME}
- * @Description: 描述
+ * @Description: 新闻类
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/9 9:12
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/9 9:12
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 public class NewsBean implements Serializable {
 
     //新闻id
-    private int id;
+    private long id;
     //新闻md5
     private String md5;
     //新闻标题
@@ -46,12 +40,14 @@ public class NewsBean implements Serializable {
     private String newsPicUrl;
     //新闻视频链接
     private String newsVideoUrl;
+    //新闻类型
+    private String newsCategory;
 
-    public int getNewsID() {
+    public long getNewsID() {
         return id;
     }
 
-    public void setNewsID(int id) {
+    public void setNewsID(long id) {
         this.id = id;
     }
 
@@ -149,6 +145,14 @@ public class NewsBean implements Serializable {
 
     public void setNewsVideoUrl(String newsVideoUrl) {
         this.newsVideoUrl = newsVideoUrl;
+    }
+
+    public String getNewsCategory() {
+        return newsCategory;
+    }
+
+    public void setNewsCategory(String newsCategory) {
+        this.newsCategory = newsCategory;
     }
 
     @Override

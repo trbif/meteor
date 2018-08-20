@@ -8,16 +8,10 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * @ProjectName: data-provider
- * @Package: cn.meteor.cloud.data.rest
- * @ClassName: ${TYPE_NAME}
  * @Description: 本打算通过resttemplate来实现crawler的rpc调用，但毕竟封装层次高，于是采用网络层次较低的dubbo来完成rpc
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/10 16:50
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/10 16:50
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 @Configuration
 public class RestTemplateConfig {
