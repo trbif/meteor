@@ -4,7 +4,6 @@ import cn.meteor.cloud.bean.NewsBean;
 import cn.meteor.cloud.bean.W2VModelBean;
 import cn.meteor.cloud.dubbo.NewsConsumerService;
 import cn.meteor.cloud.service.W2VModelService;
-import cn.meteor.cloud.utils.MD5;
 import com.alibaba.fastjson.JSON;
 import org.apdplat.word.WordSegmenter;
 import org.apdplat.word.segmentation.Word;
@@ -23,16 +22,10 @@ import java.util.concurrent.Future;
 
 /**
  * @ProjectName: data-provider
- * @Package: cn.meteor.cloud.data.train.starter
- * @ClassName: ${TYPE_NAME}
  * @Description: 定时训练器
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/10 14:15
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/10 14:15
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 @Component
 public class DataTrainStarter {

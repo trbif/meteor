@@ -5,6 +5,7 @@ import cn.meteor.cloud.returnmsg.ReturnMsg;
 import cn.meteor.cloud.train.word2vec.util.Tokenizer;
 import cn.meteor.cloud.train.word2vec.vec.VectorModel;
 import cn.meteor.cloud.train.word2vec.vec.Word2Vec;
+import cn.meteor.cloud.workbox.annotation.TimeCosts;
 import org.apache.ibatis.io.Resources;
 import org.apdplat.word.WordSegmenter;
 import org.apdplat.word.segmentation.Word;
@@ -17,16 +18,10 @@ import java.util.concurrent.Callable;
 
 /**
  * @ProjectName: data-provider
- * @Package: cn.meteor.cloud.train
- * @ClassName: ${TYPE_NAME}
- * @Description: 描述
+ * @Description: 训练执行器
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/16 13:51
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/16 13:51
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 public class W2VTrainer implements Callable<Object> {
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
@@ -68,14 +63,16 @@ public class W2VTrainer implements Callable<Object> {
                 .setMethod(trainMethod)
                 .setVectorSize(params.getVectorDim())
                 .build();
-        for(NewsBean bean:beanList){
-            List<Word> words = WordSegmenter.seg(bean.getNewsTitle());
-            word2Vec.readTokens(new Tokenizer(
-                    words
-                    .toString()
-                            .substring(1,words.toString().length()-1)
-                            .replaceAll(", "," "),
-                    " "));
+        for(int i=0;i<100;i++){
+            for(NewsBean bean:beanList){
+                List<Word> words = WordSegmenter.seg(bean.getNewsTitle()+bean.getNewsCategory()+bean.getNewsOriginalSummary()+bean.getNewsCategory());
+                word2Vec.readTokens(new Tokenizer(
+                        words
+                                .toString()
+                                .substring(1,words.toString().length()-1)
+                                .replaceAll(", "," "),
+                        " "));
+            }
         }
         long end = System.currentTimeMillis();
         LOG.info("结束填充语料，耗时：{}ms",end-start);

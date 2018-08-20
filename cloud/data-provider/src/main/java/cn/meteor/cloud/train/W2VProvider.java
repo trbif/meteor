@@ -4,6 +4,7 @@ import cn.meteor.cloud.bean.W2VModelBean;
 import cn.meteor.cloud.service.W2VModelService;
 import cn.meteor.cloud.train.rebuild.impl.UserVectorRebuild;
 import cn.meteor.cloud.train.word2vec.vec.VectorModel;
+import cn.meteor.cloud.workbox.annotation.TimeCosts;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +19,10 @@ import java.util.concurrent.Future;
 
 /**
  * @ProjectName: data-provider
- * @Package: cn.meteor.cloud.train
- * @ClassName: ${TYPE_NAME}
- * @Description: 描述
+ * @Description: 向量重构入口类 一般在更换模型时执行
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/17 9:02
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/17 9:02
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 @Component
 public class W2VProvider {
@@ -46,6 +41,7 @@ public class W2VProvider {
 //        return super.postProcessAfterInitialization(bean, beanName);
 //    }
 
+    @TimeCosts(name="W2VProvider用户向量重构")
     public void userVectorRebuild(){
         LOG.info("开始用户向量重构");
         long start = System.currentTimeMillis();

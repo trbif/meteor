@@ -2,16 +2,10 @@ package cn.meteor.cloud.train;
 
 /**
  * @ProjectName: data-provider
- * @Package: cn.meteor.cloud.train
- * @ClassName: ${TYPE_NAME}
- * @Description: 描述
+ * @Description: 向量常用计算模式
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/17 13:59
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/17 13:59
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 public class W2VCalculator {
 
@@ -19,11 +13,43 @@ public class W2VCalculator {
         for(int i=0;i<vector1.length;i++){
             vector1[i] += vector2[i];
         }
-        toOne(vector1);
+//        toOne(vector1);
+    }
+
+    public static void vectorPlus(Float[] vector1,float[] vector2){
+        for(int i=0;i<vector1.length;i++){
+            vector1[i] += vector2[i];
+        }
+//        toOne(vector1);
+    }
+
+    public static void vectorPlus(float[] vector1,Float[] vector2){
+        for(int i=0;i<vector1.length;i++){
+            vector1[i] += vector2[i];
+        }
+//        toOne(vector1);
+    }
+
+    public static void vectorPlus(Float[] vector1,Float[] vector2){
+        for(int i=0;i<vector1.length;i++){
+            vector1[i] += vector2[i];
+        }
+//        toOne(vector1);
     }
 
     //精度要求不高
     public static void toOne(float[] vector){
+        float div = 0.0f;
+        for(int i=0;i<vector.length;i++){
+            div += vector[i]*vector[i];
+        }
+        for(int i=0;i<vector.length;i++){
+            vector[i] /= div;
+        }
+    }
+
+    //精度要求不高
+    public static void toOne(Float[] vector){
         float div = 0.0f;
         for(int i=0;i<vector.length;i++){
             div += vector[i]*vector[i];

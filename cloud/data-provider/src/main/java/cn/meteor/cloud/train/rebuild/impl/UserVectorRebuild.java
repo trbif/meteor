@@ -15,20 +15,15 @@ import java.util.*;
 
 /**
  * @ProjectName: data-provider
- * @Package: cn.meteor.cloud.train.rebuild
- * @ClassName: ${TYPE_NAME}
- * @Description: 线程执行期间应一边计算数据，一边更新数据库，这样jvm也就不会有大对象（一系列用户向量）的生成，因此选择将service资源下沉到线程中使用
+ * @Description: 用户向量重构
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/17 10:09
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/17 10:09
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 public class UserVectorRebuild implements VectorRebuild {
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
+    //线程执行期间应一边计算数据，一边更新数据库，这样jvm也就不会有大对象（一系列用户向量）的生成，因此选择将service资源下沉到线程中使用
     private W2VModelService w2VModelService;
     private VectorModel oldModel;
     private VectorModel newModel;

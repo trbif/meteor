@@ -4,16 +4,10 @@ import java.util.Objects;
 
 /**
  * @ProjectName: data-provider
- * @Package: cn.meteor.cloud.train
- * @ClassName: ${TYPE_NAME}
- * @Description: 描述
+ * @Description: 描述w2c相关参数
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/16 16:11
- * @UpdateUser: Daivd Zhang
- * @UpdateDate: 2018/8/16 16:11
- * @UpdateRemark: The modified content
  * @Version: 1.0.0
- * <p>Copyright: Copyright (c) 2018</p>
  */
 public class W2VParams {
     private int vectorDim;
