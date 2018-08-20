@@ -43,8 +43,6 @@ public class W2VProvider {
 
     @TimeCosts(name="W2VProvider用户向量重构")
     public void userVectorRebuild(){
-        LOG.info("开始用户向量重构");
-        long start = System.currentTimeMillis();
         W2VModelBean bean = w2VModelService.getMostAccurateModel();
         VectorModel newModel = VectorModel.loadFromFile(bean.getModelName());
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
@@ -55,8 +53,7 @@ public class W2VProvider {
         fixedThreadPool.shutdown();
         while (true) {
             if (fixedThreadPool.isTerminated()) {
-                long end = System.currentTimeMillis();
-                LOG.info("结束用户向量重构，耗时{}ms",end-start);
+                //原本写计时方法，后用aop+annotation代替，有一定时间差，但影响不大
                 break;
             }
             try {
@@ -70,7 +67,10 @@ public class W2VProvider {
     @PostConstruct
     public void setCurrentModel(){
         W2VModelBean w2VModelBean = w2VModelService.getMostAccurateModel();
-        VectorModel model = VectorModel.loadFromFile(w2VModelBean.getModelName());
+        VectorModel model = null;
+        if(w2VModelBean!=null){
+            model = VectorModel.loadFromFile(w2VModelBean.getModelName());
+        }
         currentModel = model;
     }
 

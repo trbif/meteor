@@ -43,6 +43,8 @@ public class DataTrainStarter {
     NewsConsumerService newsConsumerService;
     @Autowired
     W2VModelService w2VModelService;
+    @Autowired
+    W2VProvider w2VProvider;
 
     private int[] dim = {20,50,70};
 
@@ -86,5 +88,6 @@ public class DataTrainStarter {
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        w2VProvider.setCurrentModel();
     }
 }
