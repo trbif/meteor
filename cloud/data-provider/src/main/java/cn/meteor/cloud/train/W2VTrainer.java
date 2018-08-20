@@ -56,6 +56,7 @@ public class W2VTrainer implements Callable<Object> {
         return new ReturnMsg.Builder().setErrorMsg("null").build();
     }
 
+    @TimeCosts(name="W2VTrainer填充语料")
     private void fillCorpus(List<NewsBean> beanList){
         LOG.info("开始填充语料");
         long start = System.currentTimeMillis();
@@ -78,6 +79,7 @@ public class W2VTrainer implements Callable<Object> {
         LOG.info("结束填充语料，耗时：{}ms",end-start);
     }
 
+    @TimeCosts(name="W2VProvider计算准确度")
     private double getAccuracy(String modelPath){
         LOG.info("开始计算准确度");
         long start = System.currentTimeMillis();

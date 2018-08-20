@@ -40,7 +40,7 @@ public class UserOperTest {
     @Test
     public void testLike(){
         UserBean userBean = new UserBean();
-        userBean.setId(13);
+        userBean.setId(1);
         NewsBean newsBean = new NewsBean();
         newsBean.setNewsCategory("CPU");
         userOper.like(userBean,newsBean);
@@ -49,7 +49,7 @@ public class UserOperTest {
     @Test
     public void testDislike(){
         UserBean userBean = new UserBean();
-        userBean.setId(13);
+        userBean.setId(1);
         NewsBean newsBean = new NewsBean();
         newsBean.setNewsCategory("CPU");
         userOper.dislike(userBean,newsBean);
