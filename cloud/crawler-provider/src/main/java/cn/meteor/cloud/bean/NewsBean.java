@@ -1,5 +1,7 @@
 package cn.meteor.cloud.bean;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.io.Serializable;
@@ -8,7 +10,7 @@ import java.io.Serializable;
  * @ProjectName: crawler-provider
  * @Package: cn.meteor.cloud.bean
  * @ClassName: ${TYPE_NAME}
- * @Description: mybatis与elasticsearch共用，保持结构一致
+ * @Description: 描述
  * @Author: Daivd Zhang
  * @CreateDate: 2018/8/9 9:12
  * @UpdateUser: Daivd Zhang
@@ -21,7 +23,7 @@ import java.io.Serializable;
 public class NewsBean implements Serializable {
 
     //新闻id
-    private int id;
+    private long id;
     //新闻md5
     private String md5;
     //新闻标题
@@ -46,12 +48,14 @@ public class NewsBean implements Serializable {
     private String newsPicUrl;
     //新闻视频链接
     private String newsVideoUrl;
+    //新闻类型
+    private String newsCategory;
 
-    public int getNewsID() {
+    public long getNewsID() {
         return id;
     }
 
-    public void setNewsID(int id) {
+    public void setNewsID(long id) {
         this.id = id;
     }
 
@@ -151,22 +155,16 @@ public class NewsBean implements Serializable {
         this.newsVideoUrl = newsVideoUrl;
     }
 
+    public String getNewsCategory() {
+        return newsCategory;
+    }
+
+    public void setNewsCategory(String newsCategory) {
+        this.newsCategory = newsCategory;
+    }
+
     @Override
     public String toString() {
-        return "NewsBean{" +
-                "newsID=" + id +
-                ", md5='" + md5 + '\'' +
-                ", newsTitle='" + newsTitle + '\'' +
-                ", newsPublishDate='" + newsPublishDate + '\'' +
-                ", newsTags='" + newsTags + '\'' +
-                ", newsLink='" + newsLink + '\'' +
-                ", newsContent='" + newsContent + '\'' +
-                ", contentFeature='" + contentFeature + '\'' +
-                ", newsOriginalSummary='" + newsOriginalSummary + '\'' +
-                ", newsSummary='" + newsSummary + '\'' +
-                ", newsKeyword='" + newsKeyword + '\'' +
-                ", newsPicUrl='" + newsPicUrl + '\'' +
-                ", newsVideoUrl='" + newsVideoUrl + '\'' +
-                '}';
+        return JSON.toJSONString(this,SerializerFeature.WriteMapNullValue);
     }
 }

@@ -86,6 +86,12 @@ public class CrawlerStarter {
                 for(Map<String,String> paramsMap:kv.getValue().getParamList()){
                     String url = kv.getValue().getUrl();
                     for(Map.Entry<String,String> param:paramsMap.entrySet()){
+                        if(param.getKey().equals("category")){
+                            if(param.getValue()==null||param.getValue().equals("")) continue;
+                            LOG.info("starter category:{}",param.getValue());
+                            crawler.setCategory(param.getValue());
+                            continue;
+                        }
                         if(param.getValue()==null){
                             if(param.getKey().lastIndexOf("_ms@")!=-1){
                                 url = url.replace(param.getKey(), ""+Calendar.getInstance().getTimeInMillis());

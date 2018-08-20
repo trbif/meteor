@@ -40,4 +40,9 @@ public class BaseCrawler implements Crawler{
 
     }
 
+    @Override
+    public void setCategory(String category) {
+
+    }
+
 }

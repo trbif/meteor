@@ -31,17 +31,19 @@ public class ClassPathXMLApplicationContext {
                     Thread.currentThread().getContextClassLoader();
             document = saxReader.read(classLoader.getResourceAsStream(fileName));
             Element beans = document.getRootElement();
+            //<crawlers>
             for (Iterator<Element> beansList = beans.elementIterator();
                  beansList.hasNext();) {
+                //一个crawler一个bean
                 CrawlerDefine bean = new CrawlerDefine();
                 Element element = beansList.next();
+                //<crawler>
                 for (Iterator<Element> paramURLList = element.elementIterator();
                      paramURLList.hasNext();) {
                     Element paramURL = paramURLList.next();
                     LOG.info("url:{}",paramURL.attributeValue("url"));
                     String regx = "@[A-Za-z]+_[A-Za-z]+_[A-Za-z]+@";
                     Pattern pattern = Pattern.compile(regx);
-                    // 现在创建 matcher 对象
                     String url = paramURL.attributeValue("url");
                     bean.setUrl(url);
                     Matcher matcher = pattern.matcher(url);
@@ -53,6 +55,7 @@ public class ClassPathXMLApplicationContext {
                         keys.put(val[0],originVal);
                     }
                     List<Map<String,String>> paramsList = new ArrayList<>();
+                    //<urlTemplate>
                     for (Iterator<Element> paramList = paramURL.elementIterator();
                          paramList.hasNext();) {
                         Element param = paramList.next();
@@ -66,10 +69,12 @@ public class ClassPathXMLApplicationContext {
                             paramMap.put(key.getValue(),val);
                             LOG.info("paramkey:{},val:{}",key.getKey(),val);
                         }
+                        String category = param.attributeValue("category");
+                        LOG.info("category:{}",category);
+                        paramMap.put("category",category);
                         paramsList.add(paramMap);
                     }
                     bean.setParamList(paramsList);
-                    break;
                 }
                 bean.setClassName(element.attributeValue("class"));
                 bean.setId(element.attributeValue("id"));

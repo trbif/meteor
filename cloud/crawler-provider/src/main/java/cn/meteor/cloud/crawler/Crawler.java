@@ -22,4 +22,5 @@ public interface Crawler {
     public String classInfo();
     public List<NewsBean> seize(String url);
     public void setNewsService(NewsService newsService);
+    public void setCategory(String category);
 }

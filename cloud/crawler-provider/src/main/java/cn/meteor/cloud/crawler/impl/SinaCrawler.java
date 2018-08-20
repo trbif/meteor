@@ -34,6 +34,7 @@ public class SinaCrawler extends CrawlerAbstract implements Crawler{
     private static String CHARSET = "utf-8";
 
     private NewsService newsService;
+    private String category;
 
     @Override
     public String classInfo() {
@@ -51,6 +52,8 @@ public class SinaCrawler extends CrawlerAbstract implements Crawler{
         for(int i=0;i<array.size();i++) {
             JSONObject jsonObject = array.getJSONObject(i);
             NewsBean newsBean = new NewsBean();
+            newsBean.setNewsCategory(category);
+            LOG.info("excutor category:{}",category);
             newsBean.setNewsLink(jsonObject.getString("url"));
             newsBean.setNewsTags(jsonObject.getString("keywords"));
             newsBean.setNewsPublishDate(Long.valueOf(jsonObject.getString("ctime")+"000"));
@@ -96,4 +99,7 @@ public class SinaCrawler extends CrawlerAbstract implements Crawler{
         this.newsService = newsService;
     }
 
+    public void setCategory(String category) {
+        this.category = category;
+    }
 }
