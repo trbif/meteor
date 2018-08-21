@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>center</module>
+        <module>hubble</module>
         <module>provider</module>
-        <module>consumer</module>
-        <module>crawler-provider</module>
-        <module>data-provider</module>
+        <module>galaxy</module>
+        <module>spacecraft</module>
+        <module>centauir-alpha</module>
     </modules>
 
 </project>
