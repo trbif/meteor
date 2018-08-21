@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>cn.meteor.cloud</groupId>
-	<artifactId>crawler-provider</artifactId>
+	<artifactId>spacecraft</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
-	<name>crawler-provider</name>
+	<name>spacecraft</name>
 	<description>爬虫服务提供者</description>
 
 	<parent>
