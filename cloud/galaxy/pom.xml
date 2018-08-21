@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.meteor.cloud</groupId>
-    <artifactId>consumer</artifactId>
+    <artifactId>galaxy</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>consumer</name>
-    <description>消费者</description>
+    <name>galaxy</name>
+    <description>对外消费服务收集者</description>
 
 
     <parent>
