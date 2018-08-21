@@ -10,7 +10,6 @@
 
     <modules>
         <module>hubble</module>
-        <module>provider</module>
         <module>galaxy</module>
         <module>spacecraft</module>
         <module>centauir-alpha</module>
