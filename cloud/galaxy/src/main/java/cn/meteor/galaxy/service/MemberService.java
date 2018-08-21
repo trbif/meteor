@@ -1,6 +1,6 @@
-package cn.meteor.consumer.service;
+package cn.meteor.galaxy.service;
 
-import cn.meteor.consumer.bean.NewsBean;
+import cn.meteor.spacecraft.bean.NewsBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

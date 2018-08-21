@@ -1,4 +1,4 @@
-package cn.meteor.consumer;
+package cn.meteor.galaxy;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

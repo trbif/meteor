@@ -1,4 +1,4 @@
-package cn.meteor.consumer;
+package cn.meteor.galaxy;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

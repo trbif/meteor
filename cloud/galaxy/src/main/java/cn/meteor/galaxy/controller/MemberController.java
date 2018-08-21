@@ -1,7 +1,7 @@
-package cn.meteor.consumer.controller;
+package cn.meteor.galaxy.controller;
 
-import cn.meteor.consumer.bean.NewsBean;
-import cn.meteor.consumer.service.MemberService;
+import cn.meteor.galaxy.service.MemberService;
+import cn.meteor.spacecraft.bean.NewsBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class ConsumerController {
+public class MemberController {
     @Autowired
     MemberService memberService;
     @RequestMapping("/getOrderUserAll")
