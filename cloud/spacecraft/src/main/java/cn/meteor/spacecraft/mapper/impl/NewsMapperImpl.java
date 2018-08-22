@@ -48,7 +48,7 @@ public class NewsMapperImpl implements NewsMapper {
         try {
             NewsMapper mapper = session.getMapper(NewsMapper.class);
             mapper.insert(bean);
-            LOG.info("newsbean insert:{}",bean);
+            LOG.debug("newsbean insert:{}",bean);
             session.commit();
         } finally {
             session.close();

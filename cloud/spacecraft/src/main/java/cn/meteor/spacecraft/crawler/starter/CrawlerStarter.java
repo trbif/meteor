@@ -38,7 +38,7 @@ public class CrawlerStarter {
 
     @Autowired
 //    @Qualifier("cn.meteor.cloud.service.impl.CrawlerServiceImpl")
-            UserService userService;
+    UserService userService;
     @Autowired
     NewsService newsService;
 
@@ -120,10 +120,7 @@ public class CrawlerStarter {
             this.newsService = newsService;
         }
         public void run(){
-            for(NewsBean newsBean:crawler.seize(url)){
-//                if(newsService.newsDuplicatedList(newsBean.getMd5()).size()==0)
-//                    newsService.insert(newsBean);
-            }
+            crawler.seize(url);
         }
     }
 }

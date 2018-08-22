@@ -50,6 +50,8 @@ public class NewsBean implements Serializable {
     private String newsVideoUrl;
     //新闻类型
     private String newsCategory;
+    //新闻来源
+    private String newsSource;
 
     public long getNewsID() {
         return id;
@@ -161,6 +163,14 @@ public class NewsBean implements Serializable {
 
     public void setNewsCategory(String newsCategory) {
         this.newsCategory = newsCategory;
+    }
+
+    public String getNewsSource() {
+        return newsSource;
+    }
+
+    public void setNewsSource(String newsSource) {
+        this.newsSource = newsSource;
     }
 
     @Override

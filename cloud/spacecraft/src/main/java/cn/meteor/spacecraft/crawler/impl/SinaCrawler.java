@@ -31,8 +31,8 @@ import java.util.List;
 public class SinaCrawler extends CrawlerAbstract implements Crawler{
     private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
-    private static String CHARSET = "utf-8";
-
+    private final static String CHARSET = "utf-8";
+    private final static String SOURCE = "sina";
     private NewsService newsService;
     private String category;
 
@@ -53,19 +53,19 @@ public class SinaCrawler extends CrawlerAbstract implements Crawler{
             JSONObject jsonObject = array.getJSONObject(i);
             NewsBean newsBean = new NewsBean();
             newsBean.setNewsCategory(category);
-            LOG.info("excutor category:{}",category);
+            LOG.debug("excutor category:{}",category);
             newsBean.setNewsLink(jsonObject.getString("url"));
             newsBean.setNewsTags(jsonObject.getString("keywords"));
             newsBean.setNewsPublishDate(Long.valueOf(jsonObject.getString("ctime")+"000"));
             newsBean.setNewsTitle(jsonObject.getString("title"));
             newsBean.setNewsOriginalSummary(jsonObject.getString("summary"));
+            newsBean.setNewsSource(SOURCE);
             HttpRequest requestInfo = new HttpRequest(newsBean.getNewsLink(), CHARSET);
             requestInfo.setMethod("GET");
             newsBean.setNewsContent(parseContent(requestInfo.request()));
             newsBean.setMd5(MD5.toMD5(newsBean.getNewsTitle()+newsBean.getNewsPublishDate()));
-//            if(newsService.newsDuplicatedList(newsBean.getMd5()).size()==0)
             newsService.insert(newsBean);
-            LOG.info("插入newsbean：{}",newsBean);
+            LOG.debug("插入newsbean：{}",newsBean);
             list.add(newsBean);
         }
 
@@ -74,11 +74,9 @@ public class SinaCrawler extends CrawlerAbstract implements Crawler{
 
 
     public String parseContent(String html) {
-        // TODO Auto-generated method stub
         Document document = Jsoup.parse(html);
         //content
         String content = document.getElementsByClass("content").text();
-
         return content;
     }
 

@@ -6,6 +6,14 @@
         <urlTemplate url="http://feed.mix.sina.com.cn/api/roll/get?pageid=@pageid_str_str@&amp;lid=@lid_str_str@&amp;num=100&amp;versionNumber=1.2.8&amp;ctime=@ctime_date_s@&amp;encode=utf-8&amp;callback=feedCardJsonpCallback&amp;_=@a_date_ms@">
             <param pageid="204" lid="22" category="IT"></param>
             <param pageid="236" lid="24" category="Internet"></param>
+            <param pageid="123" lid="1367" category="社会"></param>
+            <param pageid="51" lid="740" category="电影"></param>
+            <param pageid="207" lid="1795" category="探索"></param>
+        </urlTemplate>
+    </crawler>
+    <crawler id = "ZOLCrawler" class = "cn.meteor.spacecraft.crawler.impl.ZOLCrawler" >
+        <urlTemplate url="http://mobile.zol.com.cn/list.html">
+            <param category="手机"></param>
         </urlTemplate>
     </crawler>
 </crawlers>

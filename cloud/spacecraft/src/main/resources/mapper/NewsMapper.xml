@@ -12,8 +12,8 @@
 
 	<insert id="insert">
 		insert ignore into
-		news(md5,newsTitle,newsPublishDate,newsTags,newsLink,newsContent,contentFeature,newsOriginalSummary,newsSummary,newsKeyword,newsPicUrl,newsVideoUrl,newsCategory)
-		values(#{md5}, #{newsTitle}, #{newsPublishDate}, #{newsTags}, #{newsLink}, #{newsContent}, #{contentFeature}, #{newsOriginalSummary}, #{newsSummary}, #{newsKeyword}, #{newsPicUrl}, #{newsVideoUrl}, #{newsCategory})
+		news(md5,newsTitle,newsPublishDate,newsTags,newsLink,newsContent,contentFeature,newsOriginalSummary,newsSummary,newsKeyword,newsPicUrl,newsVideoUrl,newsCategory,newsSource)
+		values(#{md5}, #{newsTitle}, #{newsPublishDate}, #{newsTags}, #{newsLink}, #{newsContent}, #{contentFeature}, #{newsOriginalSummary}, #{newsSummary}, #{newsKeyword}, #{newsPicUrl}, #{newsVideoUrl}, #{newsCategory}, #{newsSource})
 	</insert>
 
 	<!--<update id="reduceNumber">-->
