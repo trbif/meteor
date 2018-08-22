@@ -46,4 +46,9 @@ public class NewsDubboServiceImpl implements NewsDubboService {
         return categoryService.getAllCategories();
     }
 
+    @Override
+    public List<NewsBean> getNewsListByCategory(long limitedTime, String categoryName) {
+        return newsService.getNewsListByCategory(limitedTime,categoryName);
+    }
+
 }

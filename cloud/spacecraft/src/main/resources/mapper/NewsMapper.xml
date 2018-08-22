@@ -16,6 +16,13 @@
 		values(#{md5}, #{newsTitle}, #{newsPublishDate}, #{newsTags}, #{newsLink}, #{newsContent}, #{contentFeature}, #{newsOriginalSummary}, #{newsSummary}, #{newsKeyword}, #{newsPicUrl}, #{newsVideoUrl}, #{newsCategory}, #{newsSource})
 	</insert>
 
+	<select id="findByCategory" resultType="cn.meteor.spacecraft.bean.NewsBean">
+		SELECT newsTitle,newsLink,newsSource,newsCategory
+		FROM News
+		WHERE newsPublishDate >= #{limitedTime}
+		AND newsCategory = #{categoryName}
+	</select>
+
 	<!--<update id="reduceNumber">-->
 		<!--UPDATE _goods -->
 		<!--SET -->

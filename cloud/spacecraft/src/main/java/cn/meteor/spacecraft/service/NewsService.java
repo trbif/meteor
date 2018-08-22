@@ -20,4 +20,5 @@ import java.util.List;
 public interface NewsService {
     public void insert(NewsBean bean);
     public List<NewsBean> getNewsList(long start,long end);
+    public List<NewsBean> getNewsListByCategory(long limitedTime,String categoryName);
 }

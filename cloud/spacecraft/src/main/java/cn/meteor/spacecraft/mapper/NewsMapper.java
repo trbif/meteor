@@ -45,4 +45,8 @@ public interface NewsMapper {
 
 //    @Select("SELECT * FROM News WHERE md5 = #{md5}")
     public List<NewsBean> findByMD5(@Param("md5") String md5);
+
+
+    public List<NewsBean> findByCategory(@Param("limitedTime") long limitedTime,
+                                         @Param("categoryName") String categoryName);
 }

@@ -37,4 +37,9 @@ public class NewsServiceImpl implements NewsService {
         return newsMapper.findByDatePeriod(start,end);
     }
 
+    @Override
+    public List<NewsBean> getNewsListByCategory(long limitedTime, String categoryName) {
+        return newsMapper.findByCategory(limitedTime,categoryName);
+    }
+
 }

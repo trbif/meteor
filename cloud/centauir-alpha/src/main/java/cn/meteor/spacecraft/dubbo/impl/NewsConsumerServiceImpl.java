@@ -33,4 +33,9 @@ public class NewsConsumerServiceImpl implements NewsConsumerService {
     public List<CategoryBean> getAllCategories() {
         return newsDubboService.getAllCategories();
     }
+
+    @Override
+    public List<NewsBean> getNewsListByCategory(long limitedTime, String categoryName) {
+        return newsDubboService.getNewsListByCategory(limitedTime,categoryName);
+    }
 }

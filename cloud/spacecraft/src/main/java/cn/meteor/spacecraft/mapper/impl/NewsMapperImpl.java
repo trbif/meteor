@@ -59,4 +59,15 @@ public class NewsMapperImpl implements NewsMapper {
     public List<NewsBean> findByMD5(String md5) {
         return null;
     }
+
+    @Override
+    public List<NewsBean> findByCategory(long limitedTime, String categoryName) {
+        SqlSession session = sqlSessionFactory.openSession();
+        try {
+            NewsMapper mapper = session.getMapper(NewsMapper.class);
+            return  mapper.findByCategory(limitedTime, categoryName);
+        } finally {
+            session.close();
+        }
+    }
 }

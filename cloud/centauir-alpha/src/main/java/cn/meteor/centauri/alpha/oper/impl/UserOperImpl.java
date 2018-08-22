@@ -8,16 +8,16 @@ import cn.meteor.centauri.alpha.service.NewsService;
 import cn.meteor.centauri.alpha.service.UserService;
 import cn.meteor.centauri.alpha.train.W2VCalculator;
 import cn.meteor.centauri.alpha.train.W2VProvider;
+import cn.meteor.spacecraft.bean.CategoryBean;
 import cn.meteor.spacecraft.bean.NewsBean;
+import cn.meteor.spacecraft.dubbo.NewsConsumerService;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * @ProjectName: data-provider
@@ -33,6 +33,8 @@ public class UserOperImpl implements UserOper {
     W2VProvider w2VProvider;
     @Autowired
     UserService userService;
+    @Autowired
+    NewsConsumerService newsConsumerService;
 
     @Override
     public ReturnMsg init(UserBean userBean){
@@ -82,7 +84,22 @@ public class UserOperImpl implements UserOper {
     }
 
     @Override
-    public List<NewsService> refresh(UserBean userBean) {
-        return null;
+    public List<NewsBean> refresh(UserBean userBean) {
+        UserVectorBean userVectorBean = userService.getUserVectorBeanByUserid(userBean);
+        List<Float> listStable = JSON.parseArray(userVectorBean.getStablevector(),Float.class);
+        Float[] stableVector = listStable.toArray(new Float[listStable.size()]);
+        Map<Float,String> categoryScore = new TreeMap<Float,String>(new Comparator<Float>() {
+            @Override
+            public int compare(Float o1, Float o2) {
+                return o2.compareTo(o1);
+            }
+        });
+        for(CategoryBean categoryBean:newsConsumerService.getAllCategories()){
+            float[] categoryVector = w2VProvider.getCurrentModel().getWordVector(categoryBean.getCategoryName());
+            if(categoryVector==null) continue;
+            categoryScore.put(W2VCalculator.similarity(stableVector,categoryVector),categoryBean.getCategoryName());
+        }
+        String topCategory = categoryScore.get(((TreeMap<Float, String>) categoryScore).firstKey());
+        return newsConsumerService.getNewsListByCategory(Calendar.getInstance().getTimeInMillis()-60*60*24*1000,topCategory);
     }
 }

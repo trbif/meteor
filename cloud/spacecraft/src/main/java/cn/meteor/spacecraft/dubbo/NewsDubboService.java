@@ -21,4 +21,5 @@ import java.util.List;
 public interface NewsDubboService {
     public List<NewsBean> getNewsList(long start, long end);
     public List<CategoryBean> getAllCategories();
+    public List<NewsBean> getNewsListByCategory(long limitedTime, String categoryName);
 }

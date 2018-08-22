@@ -58,6 +58,8 @@ public class UserStatusController {
     //用户请求新闻列表
     @RequestMapping(value = "/refresh")
     public List<NewsBean> refresh(@RequestParam(required=true)long userID){
-        return null;
+        UserBean userBean = new UserBean();
+        userBean.setId(userID);
+        return userOper.refresh(userBean);
     }
 }
