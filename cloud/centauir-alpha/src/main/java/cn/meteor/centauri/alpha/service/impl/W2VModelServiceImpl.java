@@ -1,10 +1,8 @@
 package cn.meteor.centauri.alpha.service.impl;
 
-import cn.meteor.centauri.alpha.bean.CategoryBean;
 import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.bean.UserVectorBean;
 import cn.meteor.centauri.alpha.bean.W2VModelBean;
-import cn.meteor.centauri.alpha.mapper.CategoryMapper;
 import cn.meteor.centauri.alpha.mapper.UserMapper;
 import cn.meteor.centauri.alpha.mapper.UserVectorMapper;
 import cn.meteor.centauri.alpha.mapper.W2VModelMapper;
@@ -12,7 +10,6 @@ import cn.meteor.centauri.alpha.service.W2VModelService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -31,8 +28,6 @@ public class W2VModelServiceImpl implements W2VModelService {
     UserVectorMapper userVectorMapper;
     @Resource
     UserMapper userMapper;
-    @Resource
-    CategoryMapper categoryMapper;
 
     @Override
     public W2VModelBean getMostAccurateModel() {
@@ -53,13 +48,10 @@ public class W2VModelServiceImpl implements W2VModelService {
     public UserVectorBean getUserVectorByUserid(long userid) {
         return userVectorMapper.getByUserid(userid);
     }
+
     @Override
     public List<UserBean> arrangeUserList(long lastlogin){
         return userMapper.getListByLoginTime(lastlogin);
     }
 
-    @Override
-    public List<CategoryBean> getAllCategory() {
-        return categoryMapper.findAll();
-    }
 }

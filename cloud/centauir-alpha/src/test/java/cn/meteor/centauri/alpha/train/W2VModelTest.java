@@ -1,6 +1,7 @@
 package cn.meteor.centauri.alpha.train;
 
 import cn.meteor.AlphaCentauriProviderApplication;
+import cn.meteor.centauri.alpha.train.word2vec.vec.VectorModel;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,18 +21,18 @@ import org.springframework.test.context.junit4.SpringRunner;
  * @Version: 1.0.0
  * <p>Copyright: Copyright (c) 2018</p>
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest(classes = AlphaCentauriProviderApplication.class)
 public class W2VModelTest {
-    @Autowired
-    W2VProvider w2VProvider;
 
     @Test
     public void testModel(){
-        System.out.println(w2VProvider.getCurrentModel().getWordVector("Intenet"));
-        System.out.println(w2VProvider.getCurrentModel().getWordVector("公司"));
-        System.out.println(w2VProvider.getCurrentModel().getWordVector("CPU"));
-        System.out.println(w2VProvider.getCurrentModel().getWordVector("未来"));
+        String modelPath = "D:/w2vmodel/1534918629871_20.mod";
+        VectorModel model = VectorModel.loadFromFile(modelPath);
+        System.out.println(model.getWordVector("Intenet"));
+        System.out.println(model.getWordVector("公司"));
+        System.out.println(model.getWordVector("CPU"));
+        System.out.println(model.getWordVector("未来"));
+        System.out.println(model.similar("手机"));
+
     }
 
 }

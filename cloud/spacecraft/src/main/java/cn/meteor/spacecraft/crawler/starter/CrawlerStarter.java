@@ -1,10 +1,12 @@
 package cn.meteor.spacecraft.crawler.starter;
 
+import cn.meteor.spacecraft.bean.CategoryBean;
 import cn.meteor.spacecraft.bean.NewsBean;
 import cn.meteor.spacecraft.crawler.Crawler;
 import cn.meteor.spacecraft.proxy.CrawlerGenInstance;
 import cn.meteor.spacecraft.proxy.xmlparser.ClassPathXMLApplicationContext;
 import cn.meteor.spacecraft.proxy.xmlparser.CrawlerDefine;
+import cn.meteor.spacecraft.service.CategoryService;
 import cn.meteor.spacecraft.service.UserService;
 import cn.meteor.spacecraft.service.NewsService;
 import org.slf4j.Logger;
@@ -41,7 +43,8 @@ public class CrawlerStarter {
     UserService userService;
     @Autowired
     NewsService newsService;
-
+    @Autowired
+    CategoryService categoryService;
 
     private Map<String,CrawlerDefine> crawlers = new HashMap<String,CrawlerDefine>();
 
@@ -69,42 +72,45 @@ public class CrawlerStarter {
     @Scheduled(cron = "0 0/5 * * * ?")
     public void startCrawler(){
         reload();
-        ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+        ExecutorService cachedThreadPool = Executors.newFixedThreadPool(10);
         for(Map.Entry<String,CrawlerDefine> kv:crawlers.entrySet()){
-            CrawlerGenInstance instance = CrawlerGenInstance.getInstance();
-            Crawler crawler = null;
-            try {
-                crawler = instance.get((String)kv.getKey(),newsService);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            }
-            if (crawler!=null) {
-                for(Map<String,String> paramsMap:kv.getValue().getParamList()){
+            for(Map<String,String> paramsMap:kv.getValue().getParamList()) {
+                CrawlerGenInstance instance = CrawlerGenInstance.getInstance();
+                Crawler crawler = null;
+                try {
+                    crawler = instance.get((String)kv.getKey(),newsService);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                }
+                if (crawler!=null) {
                     String url = kv.getValue().getUrl();
-                    for(Map.Entry<String,String> param:paramsMap.entrySet()){
-                        if(param.getKey().equals("category")){
-                            if(param.getValue()==null||param.getValue().equals("")) continue;
-                            LOG.info("starter category:{}",param.getValue());
+                    for (Map.Entry<String, String> param : paramsMap.entrySet()) {
+                        if (param.getKey().equals("category")) {
+                            if (param.getValue() == null || param.getValue().equals("")) continue;
+                            LOG.info("starter category:{}", param.getValue());
+                            CategoryBean categoryBean = new CategoryBean();
+                            categoryBean.setCategoryName(param.getValue());
+                            categoryService.insert(categoryBean);
                             crawler.setCategory(param.getValue());
                             continue;
                         }
-                        if(param.getValue()==null){
-                            if(param.getKey().lastIndexOf("_ms@")!=-1){
-                                url = url.replace(param.getKey(), ""+Calendar.getInstance().getTimeInMillis());
-                            }else if(param.getKey().lastIndexOf("_s@")!=-1){
-                                url = url.replace(param.getKey(), ""+Calendar.getInstance().getTimeInMillis()/1000);
+                        if (param.getValue() == null) {
+                            if (param.getKey().lastIndexOf("_ms@") != -1) {
+                                url = url.replace(param.getKey(), "" + Calendar.getInstance().getTimeInMillis());
+                            } else if (param.getKey().lastIndexOf("_s@") != -1) {
+                                url = url.replace(param.getKey(), "" + Calendar.getInstance().getTimeInMillis() / 1000);
                             }
-                        }else {
+                        } else {
                             url = url.replace(param.getKey(), param.getValue());
                         }
                     }
-                    LOG.info("finalURL:{}",url);
-                    cachedThreadPool.execute(new CrawlerThread(crawler,url,newsService));
-                    LOG.info("{}启动",kv.getKey());
+                    LOG.info("finalURL:{}", url);
+                    cachedThreadPool.execute(new CrawlerThread(crawler, url, newsService));
+                    LOG.info("{}启动", kv.getKey());
                 }
             }
         }

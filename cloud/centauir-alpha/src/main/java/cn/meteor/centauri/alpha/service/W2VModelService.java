@@ -1,6 +1,5 @@
 package cn.meteor.centauri.alpha.service;
 
-import cn.meteor.centauri.alpha.bean.CategoryBean;
 import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.bean.UserVectorBean;
 import cn.meteor.centauri.alpha.bean.W2VModelBean;
@@ -20,5 +19,4 @@ public interface W2VModelService {
     public void uptadeOrInsertUserVector(UserVectorBean bean);
     public UserVectorBean getUserVectorByUserid(long userid);
     public List<UserBean> arrangeUserList(long lastlogin);
-    public List<CategoryBean> getAllCategory();
 }

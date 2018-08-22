@@ -5,6 +5,7 @@ import cn.meteor.centauri.alpha.service.W2VModelService;
 import cn.meteor.centauri.alpha.train.rebuild.impl.UserVectorRebuild;
 import cn.meteor.centauri.alpha.train.word2vec.vec.VectorModel;
 import cn.meteor.centauri.alpha.workbox.annotation.TimeCosts;
+import cn.meteor.spacecraft.dubbo.NewsConsumerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,8 @@ public class W2VProvider {
 
     @Autowired
     W2VModelService w2VModelService;
+    @Autowired
+    NewsConsumerService newsConsumerService;
 
     private VectorModel currentModel;
 
@@ -48,7 +51,7 @@ public class W2VProvider {
         ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
 
         List<Future> futureParams = new ArrayList<>();
-        futureParams.add(fixedThreadPool.submit(new UserVectorRebuild(w2VModelService,currentModel,newModel)));
+        futureParams.add(fixedThreadPool.submit(new UserVectorRebuild(w2VModelService, newsConsumerService,currentModel,newModel)));
 
         fixedThreadPool.shutdown();
         while (true) {

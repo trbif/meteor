@@ -1,7 +1,9 @@
 package cn.meteor.spacecraft.dubbo.impl;
 
+import cn.meteor.spacecraft.bean.CategoryBean;
 import cn.meteor.spacecraft.bean.NewsBean;
 import cn.meteor.spacecraft.dubbo.NewsDubboService;
+import cn.meteor.spacecraft.service.CategoryService;
 import cn.meteor.spacecraft.service.NewsService;
 import com.alibaba.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,10 +33,17 @@ public class NewsDubboServiceImpl implements NewsDubboService {
 
     @Autowired
     NewsService newsService;
+    @Autowired
+    CategoryService categoryService;
 
     @Override
     public List<NewsBean> getNewsList(long start,long end) {
         return newsService.getNewsList(start,end);
+    }
+
+    @Override
+    public List<CategoryBean> getAllCategories() {
+        return categoryService.getAllCategories();
     }
 
 }

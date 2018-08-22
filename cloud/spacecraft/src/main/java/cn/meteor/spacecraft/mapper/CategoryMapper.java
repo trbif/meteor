@@ -1,7 +1,9 @@
-package cn.meteor.centauri.alpha.mapper;
+package cn.meteor.spacecraft.mapper;
 
-import cn.meteor.centauri.alpha.bean.CategoryBean;
+import cn.meteor.spacecraft.bean.CategoryBean;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
@@ -15,6 +17,6 @@ import java.util.List;
  */
 @Mapper
 public interface CategoryMapper {
-    @Select("SELECT * FROM category")
     public List<CategoryBean> findAll();
+    public void insert(CategoryBean categoryBean);
 }

@@ -1,4 +1,4 @@
-package cn.meteor.centauri.alpha.bean;
+package cn.meteor.spacecraft.bean;
 
 /**
  * @ProjectName: crawler-provider

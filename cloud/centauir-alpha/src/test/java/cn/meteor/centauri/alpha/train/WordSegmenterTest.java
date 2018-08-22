@@ -22,7 +22,7 @@ import java.util.List;
 public class WordSegmenterTest {
     @Test
     public void testWordSegmenter(){
-        List<Word> initWords = WordSegmenter.seg("这里用作初始化word分词器");
+        List<Word> initWords = WordSegmenter.seg("邻家便利倒闭余波未散，另一家来自北京的便利店品牌“全时”被业内人士爆出区域扩张受阻的消息。");
         List<Word> words = WordSegmenter.seg("我用过ik，用过结巴，也用过fudannlp，但从来没用过word");
         System.out.println(initWords.toString().substring(1,initWords.toString().length()-1).replaceAll(", "," "));
         System.out.println(words.toString().substring(1,words.toString().length()-1).replaceAll(", "," "));

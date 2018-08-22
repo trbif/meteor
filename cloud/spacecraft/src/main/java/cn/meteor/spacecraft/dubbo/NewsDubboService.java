@@ -1,5 +1,6 @@
 package cn.meteor.spacecraft.dubbo;
 
+import cn.meteor.spacecraft.bean.CategoryBean;
 import cn.meteor.spacecraft.bean.NewsBean;
 
 import java.util.List;
@@ -19,4 +20,5 @@ import java.util.List;
  */
 public interface NewsDubboService {
     public List<NewsBean> getNewsList(long start, long end);
+    public List<CategoryBean> getAllCategories();
 }

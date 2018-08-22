@@ -76,7 +76,7 @@ public class SinaCrawler extends CrawlerAbstract implements Crawler{
     public String parseContent(String html) {
         Document document = Jsoup.parse(html);
         //content
-        String content = document.getElementsByClass("content").text();
+        String content = document.getElementsByClass("article").text();
         return content;
     }
 

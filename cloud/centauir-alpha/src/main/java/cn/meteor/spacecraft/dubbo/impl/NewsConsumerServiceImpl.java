@@ -1,5 +1,6 @@
 package cn.meteor.spacecraft.dubbo.impl;
 
+import cn.meteor.spacecraft.bean.CategoryBean;
 import cn.meteor.spacecraft.bean.NewsBean;
 import cn.meteor.spacecraft.dubbo.NewsConsumerService;
 import cn.meteor.spacecraft.dubbo.NewsDubboService;
@@ -26,5 +27,10 @@ public class NewsConsumerServiceImpl implements NewsConsumerService {
     @Override
     public List<NewsBean> getNewsList(long start, long end) {
         return newsDubboService.getNewsList(start,end);
+    }
+
+    @Override
+    public List<CategoryBean> getAllCategories() {
+        return newsDubboService.getAllCategories();
     }
 }

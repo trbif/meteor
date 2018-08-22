@@ -5,6 +5,7 @@ import cn.meteor.centauri.alpha.train.word2vec.util.Tokenizer;
 import cn.meteor.centauri.alpha.train.word2vec.vec.VectorModel;
 import cn.meteor.centauri.alpha.train.word2vec.vec.Word2Vec;
 import cn.meteor.centauri.alpha.workbox.annotation.TimeCosts;
+import cn.meteor.spacecraft.bean.CategoryBean;
 import cn.meteor.spacecraft.bean.NewsBean;
 import org.apache.ibatis.io.Resources;
 import org.apdplat.word.WordSegmenter;
@@ -66,7 +67,12 @@ public class W2VTrainer implements Callable<Object> {
                 .build();
         for(int i=0;i<100;i++){
             for(NewsBean bean:beanList){
-                List<Word> words = WordSegmenter.seg(bean.getNewsTitle()+bean.getNewsCategory()+bean.getNewsOriginalSummary()+bean.getNewsCategory());
+                List<Word> words = WordSegmenter.seg(bean.getNewsTitle()
+                        +bean.getNewsCategory()
+                        +bean.getNewsOriginalSummary()
+                        +bean.getNewsCategory()
+                        +bean.getNewsContent()
+                        +bean.getNewsCategory());
                 word2Vec.readTokens(new Tokenizer(
                         words
                                 .toString()
@@ -103,20 +109,19 @@ public class W2VTrainer implements Callable<Object> {
                     if(wordVector==null) continue;
                     vectorPlus(contentVectorPlus,wordVector);
                 }
-                List<String> categories = new ArrayList<>();
-                categories.add("IT");
+                List<CategoryBean> categories = DataTrainStarter.CATEGORY_LIST;
                 Map<Float,String> similarityTreeMap = new TreeMap<Float,String>(new Comparator<Float>() {
                     @Override
                     public int compare(Float o1, Float o2) {
                         return o2.compareTo(o1);//desc
                     }
                 });
-                for(String category:categories){
-                    float[] predictCategoryVector = model.getWordVector(category);
+                for(CategoryBean category:categories){
+                    float[] predictCategoryVector = model.getWordVector(category.getCategoryName());
                     if(predictCategoryVector==null) continue;
                     toOne(predictCategoryVector);
                     float similarity = similarity(predictCategoryVector,contentVectorPlus);
-                    similarityTreeMap.put(similarity,category);
+                    similarityTreeMap.put(similarity,category.getCategoryName());
                 }
                 int topK = 5;
                 for(Map.Entry entry:similarityTreeMap.entrySet()){
@@ -131,6 +136,7 @@ public class W2VTrainer implements Callable<Object> {
         }
         long end = System.currentTimeMillis();
         LOG.info("结束计算准确度，耗时：{}ms",end-start);
+        LOG.info("model：{},{}",modelPath,model.getVectorSize());
         LOG.info("准确度相关数字: bingo({}),total({})",bingo,total);
         return bingo/(double)total;
     }

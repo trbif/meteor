@@ -1,12 +1,13 @@
 package cn.meteor.centauri.alpha.train.rebuild.impl;
 
-import cn.meteor.centauri.alpha.bean.CategoryBean;
 import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.bean.UserVectorBean;
 import cn.meteor.centauri.alpha.service.W2VModelService;
 import cn.meteor.centauri.alpha.train.W2VCalculator;
 import cn.meteor.centauri.alpha.train.rebuild.VectorRebuild;
 import cn.meteor.centauri.alpha.train.word2vec.vec.VectorModel;
+import cn.meteor.spacecraft.bean.CategoryBean;
+import cn.meteor.spacecraft.dubbo.NewsConsumerService;
 import com.alibaba.fastjson.JSON;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,20 +26,22 @@ public class UserVectorRebuild implements VectorRebuild {
 
     //线程执行期间应一边计算数据，一边更新数据库，这样jvm也就不会有大对象（一系列用户向量）的生成，因此选择将service资源下沉到线程中使用
     private W2VModelService w2VModelService;
+    private NewsConsumerService newsConsumerService;
     private VectorModel oldModel;
     private VectorModel newModel;
 
     private UserVectorRebuild(){}
-    public UserVectorRebuild(W2VModelService w2VModelService,VectorModel oldModel,VectorModel newModel){
+    public UserVectorRebuild(W2VModelService w2VModelService, NewsConsumerService newsConsumerService, VectorModel oldModel, VectorModel newModel){
         LOG.info("UserVectorRebuild初始化");
         this.w2VModelService = w2VModelService;
+        this.newsConsumerService = newsConsumerService;
         this.oldModel = oldModel;
         this.newModel = newModel;
     }
     @Override
     public void rebuild() {
         long lastlogin = Calendar.getInstance().getTimeInMillis()-60*60*24*1000;
-        List<CategoryBean> categoryBeans = w2VModelService.getAllCategory();
+        List<CategoryBean> categoryBeans = newsConsumerService.getAllCategories();
         LOG.info("所有分类信息：{}",categoryBeans);
         LOG.info("所有用户信息：{}",w2VModelService.arrangeUserList(1));
         for(UserBean userBean:w2VModelService.arrangeUserList(1)){
