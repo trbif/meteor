@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -69,10 +70,12 @@ public class W2VProvider {
 
     @PostConstruct
     public void setCurrentModel(){
-        W2VModelBean w2VModelBean = w2VModelService.getMostAccurateModel();
+        W2VModelBean w2VModelBean = w2VModelService.getAvailableModel();
         VectorModel model = null;
         if(w2VModelBean!=null){
             model = VectorModel.loadFromFile(w2VModelBean.getModelName());
+            w2VModelBean.setModelRecentUsedTime(Calendar.getInstance().getTimeInMillis());
+            w2VModelService.updateRecentUsedTime(w2VModelBean);
         }
         currentModel = model;
     }

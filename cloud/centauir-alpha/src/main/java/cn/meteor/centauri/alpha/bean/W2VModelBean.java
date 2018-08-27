@@ -25,6 +25,10 @@ public class W2VModelBean {
     private String modelVersion;
     //'模型满意度'
     private double modelSatisfaction;
+    //'模型最近使用时间'
+    private long modelRecentUsedTime;
+
+
 
     public long getId() {
         return id;
@@ -80,6 +84,14 @@ public class W2VModelBean {
 
     public void setModelSatisfaction(double modelSatisfaction) {
         this.modelSatisfaction = modelSatisfaction;
+    }
+
+    public long getModelRecentUsedTime() {
+        return modelRecentUsedTime;
+    }
+
+    public void setModelRecentUsedTime(long modelRecentUsedTime) {
+        this.modelRecentUsedTime = modelRecentUsedTime;
     }
 
     @Override

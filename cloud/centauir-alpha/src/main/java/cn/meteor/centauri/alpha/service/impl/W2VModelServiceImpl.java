@@ -35,6 +35,21 @@ public class W2VModelServiceImpl implements W2VModelService {
     }
 
     @Override
+    public W2VModelBean getAvailableModel() {
+        W2VModelBean w2VModelBean = w2VModelMapper.getRecentUsedModel();
+        //返回最近使用的模型，如果没有最近使用过的（项目初始化时，使用分数最高的项目）
+        if(w2VModelBean.getModelRecentUsedTime()>0)
+            return  w2VModelBean;
+        else
+            return w2VModelMapper.getMostAccurateModel();
+    }
+
+    @Override
+    public void updateRecentUsedTime(W2VModelBean bean) {
+        w2VModelMapper.uptadeRecentUsedTime(bean);
+    }
+
+    @Override
     public void insert(W2VModelBean bean) {
         w2VModelMapper.insert(bean);
     }

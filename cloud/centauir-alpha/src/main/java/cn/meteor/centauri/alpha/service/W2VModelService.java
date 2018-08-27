@@ -15,6 +15,8 @@ import java.util.List;
  */
 public interface W2VModelService {
     public W2VModelBean getMostAccurateModel();
+    public W2VModelBean getAvailableModel();
+    public void updateRecentUsedTime(W2VModelBean bean);
     public void insert(W2VModelBean bean);
     public void uptadeOrInsertUserVector(UserVectorBean bean);
     public UserVectorBean getUserVectorByUserid(long userid);
