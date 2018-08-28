@@ -17,10 +17,10 @@
 #### 端口:8865
 ## 示例
 用户点赞“电影”相关新闻：
-http://localhost:8865/like?userID=3&newsCategory=电影
+http://localhost:8770/like?userID=3&newsCategory=电影
 
 用户取消点赞或不喜欢“电影”相关新闻：
-http://localhost:8865/dislike?userID=3&newsCategory=电影
+http://localhost:8770/dislike?userID=3&newsCategory=电影
 
 返回用户推荐列表（基于即时、倾向、固定兴趣）：
-http://localhost:8865/refresh?userID=3
+http://localhost:8770/refresh?userID=3
