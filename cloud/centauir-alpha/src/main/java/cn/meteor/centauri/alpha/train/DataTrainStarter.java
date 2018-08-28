@@ -63,7 +63,7 @@ public class DataTrainStarter {
 
     public static List<CategoryBean> CATEGORY_LIST = new ArrayList<>();
 
-    @Scheduled(cron = "0 0/5 * * * ?")
+//    @Scheduled(cron = "0 0/5 * * * ?")
     public void train(){
         boolean lock = false;
         lock = redisTemplate.opsForValue().setIfAbsent(KEY, LOCK);
