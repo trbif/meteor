@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @ProjectName: data-provider
@@ -50,7 +51,7 @@ public class UserServiceImpl implements UserService {
         UserVectorBean userVectorBean = (UserVectorBean)redisTemplate.opsForValue().get(userBean.getId());
         if(userVectorBean==null){
             userVectorBean = userVectorMapper.getByUserid(userBean.getId());
-            redisTemplate.opsForValue().set(userBean.getId(),userVectorBean);
+            redisTemplate.opsForValue().set(userBean.getId(),userVectorBean,60*5,TimeUnit.SECONDS);
             LOG.info("redisTemplate:set{}",userBean.getId());
         }
         LOG.info("userVectorBean:{}",userVectorBean);
