@@ -8,6 +8,10 @@ import cn.meteor.centauri.alpha.returnmsg.ReturnMsg;
 import cn.meteor.centauri.alpha.service.NewsService;
 import cn.meteor.centauri.alpha.service.UserService;
 import cn.meteor.spacecraft.bean.NewsBean;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -23,20 +27,34 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     @Resource
     UserMapper userMapper;
     @Resource
     UserVectorMapper userVectorMapper;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Override
     public UserBean getUserList(String userName) {
         return userMapper.find(userName);
     }
 
+    /*
+    * 根据用户id获取用户向量
+    * 未对redis进行更新设计
+    */
     @Override
     public UserVectorBean getUserVectorBeanByUserid(UserBean userBean) {
-        return userVectorMapper.getByUserid(userBean.getId());
+        UserVectorBean userVectorBean = (UserVectorBean)redisTemplate.opsForValue().get(userBean.getId());
+        if(userVectorBean==null){
+            userVectorBean = userVectorMapper.getByUserid(userBean.getId());
+            redisTemplate.opsForValue().set(userBean.getId(),userVectorBean);
+            LOG.info("redisTemplate:set{}",userBean.getId());
+        }
+        LOG.info("userVectorBean:{}",userVectorBean);
+        return userVectorBean;
     }
 
     @Override
