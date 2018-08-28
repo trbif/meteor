@@ -2,9 +2,15 @@ package cn.meteor.centauri.alpha.controller;
 
 import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.oper.UserOper;
+import cn.meteor.centauri.alpha.redis.service.RedisQueue;
 import cn.meteor.centauri.alpha.returnmsg.ReturnMsg;
 import cn.meteor.spacecraft.bean.NewsBean;
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.BoundListOperations;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +29,8 @@ import java.util.List;
 public class UserStatusController {
     @Autowired
     UserOper userOper;
+    @Autowired
+    RedisQueue redisQueue;
 
     //新建用户
     @RequestMapping(value = "/init")
@@ -41,7 +49,13 @@ public class UserStatusController {
         userBean.setId(userID);
         NewsBean newsBean = new NewsBean();
         newsBean.setNewsCategory(newsCategory);
-        return userOper.like(userBean,newsBean);
+        JSONObject params = new JSONObject();
+        params.put("type","like");
+        params.put("userBean",userBean);
+        params.put("newsBean",newsBean);
+        redisQueue.pushMsg(params.toJSONString());
+//        return userOper.like(userBean,newsBean);
+        return null;
     }
 
     //用户取消赞
