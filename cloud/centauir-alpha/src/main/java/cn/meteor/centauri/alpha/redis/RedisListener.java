@@ -35,6 +35,7 @@ public class RedisListener implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
+        LOG.info("RedisListener启动");
         ListenerThread thread = new ListenerThread();
         thread.setDaemon(true);
         thread.start();
@@ -43,11 +44,12 @@ public class RedisListener implements InitializingBean {
     class ListenerThread extends Thread {
         @Override
         public void run() {
+            LOG.info("RedisListener线程名：{}",Thread.currentThread().getName());
             try {
                 while (true) {
                     String value = redisQueue.popMsg();
                     if (StringUtils.isNotEmpty(value)) {
-                        String[] opers = value.split("||");
+                        LOG.info("RedisQueue取出新数据：{}",value);
                         JSONObject params = JSON.parseObject(value);
                         String type = params.getString("type");
                         UserBean userBean = params.getObject("userBean",UserBean.class);

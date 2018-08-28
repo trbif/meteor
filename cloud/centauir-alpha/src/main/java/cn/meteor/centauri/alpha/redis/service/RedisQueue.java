@@ -1,6 +1,8 @@
 package cn.meteor.centauri.alpha.redis.service;
 
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +19,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class RedisQueue implements InitializingBean {
+    private final Logger LOG = LoggerFactory.getLogger(this.getClass());
 
     @Value("${server.port}")
     public String serverPort;
@@ -27,14 +30,18 @@ public class RedisQueue implements InitializingBean {
 
     public void pushMsg(String value) {
         listRedisTemplate.leftPush(value);
+        LOG.info("RedisQueue加入数据：{}",value);
     }
 
     public String popMsg(){
-        return listRedisTemplate.rightPop();
+        String value = listRedisTemplate.rightPop();
+        if(StringUtils.isNotEmpty(value)) LOG.info("RedisQueue取出数据：{}",value);
+        return value;
     }
 
     @Override
     public void afterPropertiesSet() throws Exception {
         listRedisTemplate = redisTemplate.boundListOps(serverPort+"-RedisQueue");
+        LOG.info("listRedisTemplate size:{}",listRedisTemplate.size());
     }
 }

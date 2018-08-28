@@ -74,6 +74,8 @@ public class UserOperImpl implements UserOper {
     @Override
     public ReturnMsg like(UserBean userBean,NewsBean newsBean) {
         UserVectorBean userVectorBean = userService.getUserVectorBeanByUserid(userBean);
+        if(userVectorBean==null)
+            return null;
         List<Float> listStable = JSON.parseArray(userVectorBean.getStablevector(),Float.class);
         Float[] stableVector = listStable.toArray(new Float[listStable.size()]);
         float[] categoryVector = w2VProvider.getCurrentModel().getWordVector(newsBean.getNewsCategory());

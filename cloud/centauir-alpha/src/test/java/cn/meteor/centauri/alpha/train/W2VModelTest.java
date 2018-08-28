@@ -25,12 +25,12 @@ public class W2VModelTest {
 
     @Test
     public void testModel(){
-        String modelPath = "D:/w2vmodel/1534918629871_20.mod";
+        String modelPath = "D:/w2vmodel/1534940140167_10.mod";
         VectorModel model = VectorModel.loadFromFile(modelPath);
         System.out.println(model.getWordVector("Intenet"));
         System.out.println(model.getWordVector("公司"));
-        System.out.println(model.getWordVector("CPU"));
-        System.out.println(model.getWordVector("未来"));
+        System.out.println(model.getWordVector("手机"));
+        System.out.println(model.getWordVector("电影"));
         System.out.println(model.similar("手机"));
 
     }

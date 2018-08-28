@@ -73,6 +73,7 @@ public class W2VProvider {
         W2VModelBean w2VModelBean = w2VModelService.getAvailableModel();
         VectorModel model = null;
         if(w2VModelBean!=null){
+            LOG.info("初始化加载模型：{}",w2VModelBean.getModelName());
             model = VectorModel.loadFromFile(w2VModelBean.getModelName());
             w2VModelBean.setModelRecentUsedTime(Calendar.getInstance().getTimeInMillis());
             w2VModelService.updateRecentUsedTime(w2VModelBean);
