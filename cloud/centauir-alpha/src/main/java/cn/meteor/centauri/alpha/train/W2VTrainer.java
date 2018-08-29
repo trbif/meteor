@@ -85,6 +85,7 @@ public class W2VTrainer implements Callable<Object> {
         LOG.info("结束填充语料，耗时：{}ms",end-start);
     }
 
+    //统计方法有问题，待改
     @TimeCosts(name="W2VProvider计算准确度")
     private double getAccuracy(String modelPath){
         LOG.info("开始计算准确度");

@@ -147,8 +147,8 @@ public class VectorModel {
                 if (dataOutputStream != null){
                     dataOutputStream.close();
                 }
-            }catch (IOException ioe) {
-                ioe.printStackTrace();
+            }catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
