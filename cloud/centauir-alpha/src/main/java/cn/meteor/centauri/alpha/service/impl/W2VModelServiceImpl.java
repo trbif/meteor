@@ -6,6 +6,7 @@ import cn.meteor.centauri.alpha.bean.W2VModelBean;
 import cn.meteor.centauri.alpha.mapper.UserMapper;
 import cn.meteor.centauri.alpha.mapper.UserVectorMapper;
 import cn.meteor.centauri.alpha.mapper.W2VModelMapper;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import cn.meteor.centauri.alpha.service.W2VModelService;
 import org.springframework.stereotype.Service;
 
@@ -60,8 +61,14 @@ public class W2VModelServiceImpl implements W2VModelService {
     }
 
     @Override
-    public UserVectorBean getUserVectorByUserid(long userid) {
-        return userVectorMapper.getByUserid(userid);
+    public UserVectorBean getUserVectorByUserid(long userid) throws BeanEmptyException {
+        UserVectorBean userVectorBean = userVectorMapper.getByUserid(userid);
+        if(userVectorBean==null) throw new BeanEmptyException(new StringBuilder()
+                .append("userID:")
+                .append(userid)
+                .append(" 不存在")
+                .toString());
+        return userVectorBean;
     }
 
     @Override

@@ -4,9 +4,11 @@ import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.bean.UserVectorBean;
 import cn.meteor.centauri.alpha.mapper.UserMapper;
 import cn.meteor.centauri.alpha.mapper.UserVectorMapper;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import cn.meteor.centauri.alpha.returnmsg.ReturnMsg;
 import cn.meteor.centauri.alpha.service.NewsService;
 import cn.meteor.centauri.alpha.service.UserService;
+import cn.meteor.centauri.alpha.workbox.utils.TimeUtil;
 import cn.meteor.spacecraft.bean.NewsBean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -47,7 +49,7 @@ public class UserServiceImpl implements UserService {
     * 未对redis进行更新设计
     */
     @Override
-    public UserVectorBean getUserVectorBeanByUserid(UserBean userBean) {
+    public UserVectorBean getUserVectorBeanByUserid(UserBean userBean) throws BeanEmptyException {
         UserVectorBean userVectorBean = (UserVectorBean)redisTemplate.opsForValue().get(userBean.getId());
         if(userVectorBean==null){
             userVectorBean = userVectorMapper.getByUserid(userBean.getId());
@@ -55,6 +57,11 @@ public class UserServiceImpl implements UserService {
             LOG.info("redisTemplate:set{}",userBean.getId());
         }
         LOG.info("userVectorBean:{}",userVectorBean);
+        if(userVectorBean==null) throw new BeanEmptyException(new StringBuilder()
+                .append("userID:")
+                .append(userBean.getId())
+                .append(" 不存在")
+                .toString());
         return userVectorBean;
     }
 
@@ -64,7 +71,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<UserBean> getUserListByLoginTime(long lastlogin) {
+    public List<UserBean> getUserListByLoginTime(long lastlogin) throws BeanEmptyException {
+        List<UserBean> userBeanList = userMapper.getListByLoginTime(lastlogin);
+        if(userBeanList==null) throw new BeanEmptyException(new StringBuilder()
+                .append(TimeUtil.stampToDate(lastlogin))
+                .append(" 之前登录的用户列表不存在")
+                .toString());
         return userMapper.getListByLoginTime(lastlogin);
     }
 

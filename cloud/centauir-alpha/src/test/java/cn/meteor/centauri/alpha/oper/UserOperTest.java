@@ -2,6 +2,7 @@ package cn.meteor.centauri.alpha.oper;
 
 import cn.meteor.AlphaCentauriProviderApplication;
 import cn.meteor.centauri.alpha.bean.UserBean;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import cn.meteor.spacecraft.bean.NewsBean;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -43,7 +44,11 @@ public class UserOperTest {
         userBean.setId(1);
         NewsBean newsBean = new NewsBean();
         newsBean.setNewsCategory("CPU");
-        userOper.like(userBean,newsBean);
+        try {
+            userOper.like(userBean,newsBean);
+        } catch (BeanEmptyException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test
@@ -52,6 +57,10 @@ public class UserOperTest {
         userBean.setId(1);
         NewsBean newsBean = new NewsBean();
         newsBean.setNewsCategory("CPU");
-        userOper.dislike(userBean,newsBean);
+        try {
+            userOper.dislike(userBean,newsBean);
+        } catch (BeanEmptyException e) {
+            e.printStackTrace();
+        }
     }
 }

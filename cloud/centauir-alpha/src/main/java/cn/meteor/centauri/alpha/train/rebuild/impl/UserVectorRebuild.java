@@ -2,6 +2,7 @@ package cn.meteor.centauri.alpha.train.rebuild.impl;
 
 import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.bean.UserVectorBean;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import cn.meteor.centauri.alpha.service.W2VModelService;
 import cn.meteor.centauri.alpha.train.W2VCalculator;
 import cn.meteor.centauri.alpha.train.rebuild.VectorRebuild;
@@ -52,7 +53,12 @@ public class UserVectorRebuild implements VectorRebuild {
                     return o2.compareTo(o1);
                 }
             });
-            UserVectorBean userVectorBean = w2VModelService.getUserVectorByUserid(userBean.getId());
+            UserVectorBean userVectorBean = null;
+            try {
+                userVectorBean = w2VModelService.getUserVectorByUserid(userBean.getId());
+            } catch (BeanEmptyException e) {
+                e.printStackTrace();
+            }
             LOG.info("userVectorBean：{}",userVectorBean);
             if(userVectorBean==null) continue;
             String stableVectorStr = userVectorBean.getStablevector();

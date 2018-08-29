@@ -2,6 +2,7 @@ package cn.meteor.centauri.alpha.oper;
 
 
 import cn.meteor.centauri.alpha.bean.UserBean;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import cn.meteor.centauri.alpha.returnmsg.ReturnMsg;
 import cn.meteor.spacecraft.bean.NewsBean;
 
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public interface UserOper {
     public ReturnMsg init(UserBean userBean);
-    public ReturnMsg dislike(UserBean userBean,NewsBean newsBean);
-    public ReturnMsg like(UserBean userBean,NewsBean newsBean);
-    public List<NewsBean> refresh(UserBean userBean);
+    public ReturnMsg dislike(UserBean userBean,NewsBean newsBean) throws BeanEmptyException;
+    public ReturnMsg like(UserBean userBean,NewsBean newsBean) throws BeanEmptyException;
+    public List<NewsBean> refresh(UserBean userBean) throws BeanEmptyException;
 }

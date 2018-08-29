@@ -3,6 +3,7 @@ package cn.meteor.centauri.alpha.service;
 import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.bean.UserVectorBean;
 import cn.meteor.centauri.alpha.bean.W2VModelBean;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 
 import java.util.List;
 
@@ -19,6 +20,6 @@ public interface W2VModelService {
     public void updateRecentUsedTime(W2VModelBean bean);
     public void insert(W2VModelBean bean);
     public void uptadeOrInsertUserVector(UserVectorBean bean);
-    public UserVectorBean getUserVectorByUserid(long userid);
+    public UserVectorBean getUserVectorByUserid(long userid) throws BeanEmptyException;
     public List<UserBean> arrangeUserList(long lastlogin);
 }

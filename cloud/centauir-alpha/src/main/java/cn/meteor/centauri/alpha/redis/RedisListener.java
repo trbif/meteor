@@ -4,6 +4,7 @@ import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.oper.UserOper;
 import cn.meteor.centauri.alpha.oper.impl.UserOperImpl;
 import cn.meteor.centauri.alpha.redis.service.RedisQueue;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import cn.meteor.centauri.alpha.service.UserService;
 import cn.meteor.centauri.alpha.train.W2VProvider;
 import cn.meteor.spacecraft.bean.NewsBean;
@@ -45,7 +46,6 @@ public class RedisListener implements InitializingBean {
         @Override
         public void run() {
             LOG.info("RedisListener线程名：{}",Thread.currentThread().getName());
-            try {
                 while (true) {
                     String value = redisQueue.popMsg();
                     if (StringUtils.isNotEmpty(value)) {
@@ -55,15 +55,16 @@ public class RedisListener implements InitializingBean {
                         UserBean userBean = params.getObject("userBean",UserBean.class);
                         NewsBean newsBean = params.getObject("newsBean",NewsBean.class);
                         if(type.equals("like")){
-                            userOper.like(userBean,newsBean);
+                            try {
+                                userOper.like(userBean,newsBean);
+                            } catch (BeanEmptyException e) {
+                                e.printStackTrace();
+                            }
                         }else{
                             LOG.info("nothing");
                         }
                     }
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
     }
 }

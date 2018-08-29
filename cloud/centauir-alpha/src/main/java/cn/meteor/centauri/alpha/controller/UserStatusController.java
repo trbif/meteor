@@ -3,14 +3,11 @@ package cn.meteor.centauri.alpha.controller;
 import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.oper.UserOper;
 import cn.meteor.centauri.alpha.redis.service.RedisQueue;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import cn.meteor.centauri.alpha.returnmsg.ReturnMsg;
 import cn.meteor.spacecraft.bean.NewsBean;
 import com.alibaba.fastjson.JSONObject;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.BoundListOperations;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,19 +58,31 @@ public class UserStatusController {
     //用户取消赞
     @RequestMapping(value = "/dislike")
     public ReturnMsg dislike(@RequestParam(required=true)long userID,
-                             @RequestParam(required=true)String newsCategory){
+                             @RequestParam(required=true)String newsCategory) {
         UserBean userBean = new UserBean();
         userBean.setId(userID);
         NewsBean newsBean = new NewsBean();
         newsBean.setNewsCategory(newsCategory);
-        return userOper.dislike(userBean,newsBean);
+        ReturnMsg returnMsg = null;
+        try {
+            returnMsg = userOper.dislike(userBean,newsBean);
+        } catch (BeanEmptyException e) {
+            e.printStackTrace();
+        }
+        return returnMsg;
     }
 
     //用户请求新闻列表
     @RequestMapping(value = "/refresh")
-    public List<NewsBean> refresh(@RequestParam(required=true)long userID){
+    public List<NewsBean> refresh(@RequestParam(required=true)long userID) {
         UserBean userBean = new UserBean();
         userBean.setId(userID);
-        return userOper.refresh(userBean);
+        List<NewsBean> userNewsBeanList = null ;
+        try {
+            userNewsBeanList = userOper.refresh(userBean);
+        } catch (BeanEmptyException e) {
+            e.printStackTrace();
+        }
+        return userNewsBeanList;
     }
 }

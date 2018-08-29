@@ -1,6 +1,7 @@
 package cn.meteor.centauri.alpha.service;
 
 import cn.meteor.AlphaCentauriProviderApplication;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,10 @@ public class W2VModelServiceTest {
 
     @Test
     public void testGetUserVectorByUserid(){
-        System.out.println(w2VModelService.getUserVectorByUserid(1));
+        try {
+            System.out.println(w2VModelService.getUserVectorByUserid(1));
+        } catch (BeanEmptyException e) {
+            e.printStackTrace();
+        }
     }
 }

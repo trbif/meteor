@@ -4,6 +4,7 @@ import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.bean.UserVectorBean;
 import cn.meteor.centauri.alpha.oper.UserOper;
 import cn.meteor.centauri.alpha.redis.service.RedisQueue;
+import cn.meteor.centauri.alpha.returnmsg.BeanEmptyException;
 import cn.meteor.centauri.alpha.returnmsg.ReturnMsg;
 import cn.meteor.centauri.alpha.service.NewsService;
 import cn.meteor.centauri.alpha.service.UserService;
@@ -53,7 +54,7 @@ public class UserOperImpl implements UserOper {
     }
 
     @Override
-    public ReturnMsg dislike(UserBean userBean,NewsBean newsBean) {
+    public ReturnMsg dislike(UserBean userBean,NewsBean newsBean) throws BeanEmptyException {
         UserVectorBean userVectorBean = userService.getUserVectorBeanByUserid(userBean);
         List<Float> listStable = JSON.parseArray(userVectorBean.getStablevector(),Float.class);
         Float[] stableVector = listStable.toArray(new Float[listStable.size()]);
@@ -72,10 +73,8 @@ public class UserOperImpl implements UserOper {
     }
 
     @Override
-    public ReturnMsg like(UserBean userBean,NewsBean newsBean) {
+    public ReturnMsg like(UserBean userBean,NewsBean newsBean) throws BeanEmptyException {
         UserVectorBean userVectorBean = userService.getUserVectorBeanByUserid(userBean);
-        if(userVectorBean==null)
-            return null;
         List<Float> listStable = JSON.parseArray(userVectorBean.getStablevector(),Float.class);
         Float[] stableVector = listStable.toArray(new Float[listStable.size()]);
         float[] categoryVector = w2VProvider.getCurrentModel().getWordVector(newsBean.getNewsCategory());
@@ -90,7 +89,7 @@ public class UserOperImpl implements UserOper {
     }
 
     @Override
-    public List<NewsBean> refresh(UserBean userBean) {
+    public List<NewsBean> refresh(UserBean userBean) throws BeanEmptyException {
         UserVectorBean userVectorBean = userService.getUserVectorBeanByUserid(userBean);
         List<Float> listStable = JSON.parseArray(userVectorBean.getStablevector(),Float.class);
         Float[] stableVector = listStable.toArray(new Float[listStable.size()]);
