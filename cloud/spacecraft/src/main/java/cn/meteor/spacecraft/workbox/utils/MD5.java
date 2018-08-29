@@ -1,4 +1,4 @@
-package cn.meteor.spacecraft.utils;
+package cn.meteor.spacecraft.workbox.utils;
 
 import java.security.MessageDigest;
 public class MD5 {
