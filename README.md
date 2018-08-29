@@ -15,14 +15,14 @@
     </crawler>
 ```
 
->采用springboot+springcloud作为主要的分布式框架，euraka作为调度中心，对外暴露rest接口访问。内部各模块之间用dubbo作为RPC，实现各自间的接口调用。
+>采用springboot+springcloud作为主要的分布式框架，euraka作为调度中心，ribbon负载均衡，对外暴露rest接口访问。内部各模块之间用dubbo作为RPC，实现各自间的接口调用。
 
 >alpha-centauri项目中，采用redis作为消息队列缓冲用户消息；使用redis缓存部分用户数据信息。
 ### hubble：
 哈勃，meteor的控制中心（eureka），监控整体状态
 #### 端口:8761
 ### galaxy：
-星系，meteor的资源中心，对外（用户）暴露rest访问接口
+星系，meteor的资源中心，ribbon负载均衡，对外（用户）暴露rest访问接口
 #### 端口:8770
 ### spacecraft：
 战舰，meteor的数据资源发现者，多台飞船同时挖掘指定地域的消息资源（挖矿），对alpha-centauri暴露数据拉取接口（dubbo+zookeeper），对galaxy暴露rest接口
