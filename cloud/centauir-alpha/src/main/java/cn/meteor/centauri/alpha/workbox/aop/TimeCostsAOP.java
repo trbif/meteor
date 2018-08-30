@@ -27,7 +27,7 @@ public class TimeCostsAOP {
 
 
     @Around("annotationCut()")
-    public void BeforeAnnotation(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
+    public void aroundAnnotation(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature)proceedingJoinPoint.getSignature();
         Method method = signature.getMethod();
         TimeCosts costs = method.getAnnotation(TimeCosts.class);
