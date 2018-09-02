@@ -13,6 +13,7 @@
         <module>galaxy</module>
         <module>spacecraft</module>
         <module>centauir-alpha</module>
+		<module>supernova</module>
     </modules>
 
 </project>

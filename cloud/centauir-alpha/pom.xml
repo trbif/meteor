@@ -157,6 +157,12 @@
 			<version>1.9.1</version>
 		</dependency>
 
+		<!--kafka日志收集处理 -->
+		<dependency>
+			<groupId>org.springframework.kafka</groupId>
+			<artifactId>spring-kafka</artifactId>
+		</dependency>
+
 
 	</dependencies>
 

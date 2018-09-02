@@ -1,5 +1,6 @@
 package cn.meteor.centauri.alpha.controller;
 
+import cn.meteor.centauri.alpha.bean.UserAction;
 import cn.meteor.centauri.alpha.bean.UserBean;
 import cn.meteor.centauri.alpha.oper.UserOper;
 import cn.meteor.centauri.alpha.redis.service.RedisQueue;
@@ -8,10 +9,12 @@ import cn.meteor.centauri.alpha.returnmsg.ReturnMsg;
 import cn.meteor.spacecraft.bean.NewsBean;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -28,6 +31,8 @@ public class UserStatusController {
     UserOper userOper;
     @Autowired
     RedisQueue redisQueue;
+    @Autowired
+    KafkaTemplate kafkaTemplate;
 
     //新建用户
     @RequestMapping(value = "/init")
@@ -51,6 +56,12 @@ public class UserStatusController {
         params.put("userBean",userBean);
         params.put("newsBean",newsBean);
         redisQueue.pushMsg(params.toJSONString());
+        kafkaTemplate.send("user_action",
+                "like",
+                 new UserAction(userID,
+                         "like",
+                         newsCategory,
+                         Calendar.getInstance().getTimeInMillis()).toString());
 //        return userOper.like(userBean,newsBean);
         return null;
     }
