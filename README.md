@@ -30,8 +30,11 @@
 战舰，meteor的数据资源发现者，多台飞船同时挖掘指定地域的消息资源（挖矿），对alpha-centauri暴露数据拉取接口（dubbo+zookeeper），对galaxy暴露rest接口
 #### 端口:8864等
 ### alpha-centauri：
-半人马座alpha，meteor的数据加工厂（模型生成），所有spacecraft卸载的货在这里加工，对galaxy暴露rest接口
-#### 端口:8865
+半人马座alpha，meteor的数据加工厂（模型生成），所有spacecraft卸载的货在这里加工，对galaxy暴露rest接口（近实时或实时）
+#### 端口:8865等
+### supernova：
+超新星，将收集到的用户请求（行为类）通过kafka聚集到这里，并进行更多样用户行为分析（离线）
+#### 端口:9999等
 ## 示例
 用户点赞“电影”相关新闻：
 http://localhost:8770/like?userID=3&newsCategory=电影
